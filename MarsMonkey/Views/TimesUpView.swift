@@ -23,9 +23,9 @@ struct TimesUpView: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
             
-            roundedButton(title: "Menu", action: {})
+            roundedButton(title: "Menu", fontSize: 24, action: {})
             
-            roundedButton(title: "Leaderboard", action: {})
+            roundedButton(title: "Leaderboard", fontSize: 24, action: {})
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -13,9 +13,7 @@ struct LeaderboardView: View {
             StrokeText(text: "Leaderboard", width: 1)
                 .font(Font.custom("RedBurger", size: 40))
                 .foregroundColor(.mmPink)
-            
 
-            
             ZStack {
                 Color(.mmPink).edgesIgnoringSafeArea(.bottom)
                     .cornerRadius(10)
@@ -33,7 +31,7 @@ struct LeaderboardView: View {
                 }
             }
             
-            roundedButton(title: "Menu", action: {})
+            roundedButton(title: "Menu", fontSize: 24, action: {})
         }
         .padding(.horizontal, 45)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
