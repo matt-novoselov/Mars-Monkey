@@ -23,7 +23,7 @@ struct roundedButton: View {
                 
                 StrokeText(text: title, width: 1)
                     .font(Font.custom("RedBurger", size: 40))
-                    .foregroundColor(.mmPinkTitle)
+                    .foregroundColor(.mmPink)
             }
         }
     }
@@ -55,5 +55,4 @@ struct StrokeText: View {
     .padding(.horizontal)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.mmUIBackground)
-    
 }

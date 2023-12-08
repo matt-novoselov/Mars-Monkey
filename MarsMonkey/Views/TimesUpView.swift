@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct TimesUpView: View {
+    var amountOfBananasPlanted: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20){
+            StrokeText(text: "Time’s up!", width: 1)
+                .font(Font.custom("RedBurger", size: 48))
+                .foregroundColor(.white)
+            
+            Image("TimesUpMonkey")
+            
+            StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana trees", width: 1)
+                .font(Font.custom("RedBurger", size: 24))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+            
+            roundedButton(title: "Menu", action: {})
+            
+            roundedButton(title: "Leaderboard", action: {})
+        }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.mmPink)
     }
 }
 
 #Preview {
-    TimesUpView()
+    TimesUpView(amountOfBananasPlanted: 10)
 }
