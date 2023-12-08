@@ -48,11 +48,53 @@ struct StrokeText: View {
     }
 }
 
+// This structure is used for displaying single user in leaderboard
+struct leaderboardParticipant: View {
+    var playerName: String = "Player Name"
+    var playerScore: Int = 0
+    var place: Int = 0
+    var isHighlighted: Bool = false
+    
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .padding(.horizontal, -50)
+                .ignoresSafeArea()
+                .frame(height: 65)
+                .foregroundColor(.white)
+                .opacity(isHighlighted ? 1 : 0)
+            
+            HStack(spacing: 10){
+                Group{
+                    StrokeText(text: place.description, width: 1)
+                        .frame(width: 30, alignment: .leading)
+                                    
+                    StrokeText(text: playerName, width: 1)
+                    
+                    Spacer()
+                    
+                    Image(.palmTree)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 35)
+                    
+                    StrokeText(text: playerScore.description, width: 1)
+                        .frame(alignment: .trailing)
+                }
+                .foregroundColor(.mmLightPinkTitle)
+                .font(Font.custom("RedBurger", size: 20))
+            }
+        }
+    }
+}
+
 #Preview{
     VStack{
         roundedButton(title: "Play", action: {})
+        
+        leaderboardParticipant(isHighlighted: true)
     }
     .padding(.horizontal)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(Color.mmUIBackground)
+    .background(.mmUIBackground)
 }

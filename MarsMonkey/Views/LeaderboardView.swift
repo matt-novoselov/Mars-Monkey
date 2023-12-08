@@ -9,7 +9,35 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20){
+            StrokeText(text: "Leaderboard", width: 1)
+                .font(Font.custom("RedBurger", size: 40))
+                .foregroundColor(.mmPink)
+            
+
+            
+            ZStack {
+                Color(.mmPink).edgesIgnoringSafeArea(.bottom)
+                    .cornerRadius(10)
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0){
+                        ForEach((1...15), id: \.self) { place in
+                            leaderboardParticipant(
+                                place: place,
+                                isHighlighted: place == 5 ? true : false
+                            )
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+            
+            roundedButton(title: "Menu", action: {})
+        }
+        .padding(.horizontal, 45)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.mmUIBackground)
     }
 }
 

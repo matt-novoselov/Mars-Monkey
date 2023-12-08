@@ -16,7 +16,7 @@ struct TimesUpView: View {
                 .font(Font.custom("RedBurger", size: 48))
                 .foregroundColor(.white)
             
-            Image("TimesUpMonkey")
+            Image(.timesUpMonkey)
             
             StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana trees", width: 1)
                 .font(Font.custom("RedBurger", size: 24))
@@ -29,7 +29,7 @@ struct TimesUpView: View {
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.mmPink)
+        .background(.mmPink)
     }
 }
 
