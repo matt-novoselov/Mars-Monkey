@@ -11,7 +11,8 @@ import SwiftUI
 struct MarsMonkeyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LeaderboardView()
+                .preferredColorScheme(.light)
         }
     }
 }
