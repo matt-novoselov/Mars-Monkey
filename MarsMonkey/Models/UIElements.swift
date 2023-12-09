@@ -23,6 +23,16 @@ struct roundedButton: View {
                 .background(.mmPinkButton)
                 .cornerRadius(90)
         }
+        .buttonStyle(PressEffectButtonStyle())
+    }
+}
+
+// This structure is used to create an animation for buttons
+struct PressEffectButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.easeInOut, value: configuration.isPressed)
     }
 }
 
