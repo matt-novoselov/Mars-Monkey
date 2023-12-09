@@ -27,9 +27,10 @@ struct TimesUpView: View {
             
             roundedButton(title: "Leaderboard", fontSize: 24, action: {})
         }
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
         .background(.mmPink)
+        .cornerRadius(10)
+        .padding(.all, 40)
     }
 }
 
