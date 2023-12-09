@@ -15,6 +15,8 @@
 		1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */; };
 		1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */; };
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
+		CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A732B24947F00392E0E /* MenuView.swift */; };
+		CC7E7A762B24B80500392E0E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A752B24B80500392E0E /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpView.swift; sourceTree = "<group>"; };
 		1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RedBurger.otf; sourceTree = "<group>"; };
 		1ACCA87F2B2365B100BCE4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CC7E7A732B24947F00392E0E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		CC7E7A752B24B80500392E0E /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +95,9 @@
 		1ACCA8762B23607F00BCE4A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC7E7A732B24947F00392E0E /* MenuView.swift */,
 				1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */,
+				CC7E7A752B24B80500392E0E /* GameOverView.swift */,
 				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 			);
 			path = Views;
@@ -184,7 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7E7A762B24B80500392E0E /* GameOverView.swift in Sources */,
 				1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */,
+				CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */,
 				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
 				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
 				1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */,
