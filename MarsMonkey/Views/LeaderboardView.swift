@@ -30,6 +30,7 @@ struct LeaderboardView: View {
                     .padding(.horizontal)
                 }
             }
+            .mask(RoundedRectangle(cornerRadius: 10))
             
             roundedButton(title: "Menu", fontSize: 24, action: {})
         }
