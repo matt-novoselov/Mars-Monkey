@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
 		1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3596272B2347630012D276 /* MarsMonkeyApp.swift */; };
 		1A35962C2B2347640012D276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962B2B2347640012D276 /* Assets.xcassets */; };
 		1A35962F2B2347640012D276 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962E2B2347640012D276 /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
 		1A3596242B2347630012D276 /* MarsMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3596272B2347630012D276 /* MarsMonkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsMonkeyApp.swift; sourceTree = "<group>"; };
 		1A35962B2B2347640012D276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				1ACCA8732B23605C00BCE4A6 /* UIElements.swift */,
+				1A0396522B248E2E000DB43C /* Haptic Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */,
 				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
+				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
 				1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */,
 				1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */,
 			);
@@ -325,7 +329,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -355,7 +359,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

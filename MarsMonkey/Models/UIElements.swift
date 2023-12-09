@@ -14,7 +14,7 @@ struct roundedButton: View {
     var action: () -> Void
     
     var body: some View {
-        Button(action: action){
+        Button(action: {action(); lightHaptic()}){
             StrokeText(text: title, width: 1)
                 .font(Font.custom("RedBurger", size: fontSize))
                 .foregroundColor(.mmPink)
