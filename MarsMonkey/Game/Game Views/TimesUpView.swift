@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct TimesUpView: View {
+    
+    @Binding var currentGameState: GameState
+    
     var amountOfBananasPlanted: Int
     
     var body: some View {
         VStack(spacing: 20){
-            StrokeText(text: "Time’s up!", width: 1)
+            StrokeText(text: "Time’s up!", strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 48))
                 .foregroundColor(.white)
             
             Image(.timesUpMonkey)
             
-            StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana trees", width: 1)
+            StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana trees", strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 24))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
@@ -35,5 +38,5 @@ struct TimesUpView: View {
 }
 
 #Preview {
-    TimesUpView(amountOfBananasPlanted: 10)
+    TimesUpView(currentGameState: .constant(GameState.timeIsUp), amountOfBananasPlanted: 10)
 }

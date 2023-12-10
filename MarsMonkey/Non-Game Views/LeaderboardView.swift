@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    
+    @Binding var currentGameState: GameState
+    
     var body: some View {
         VStack(spacing: 20){
-            StrokeText(text: "Leaderboard", width: 1)
+            StrokeText(text: "Leaderboard", strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 40))
                 .foregroundColor(.mmPink)
 
@@ -32,7 +35,9 @@ struct LeaderboardView: View {
             }
             .mask(RoundedRectangle(cornerRadius: 10))
             
-            roundedButton(title: "Menu", fontSize: 24, action: {})
+            roundedButton(title: "Menu", fontSize: 24, action: {
+                withAnimation { self.currentGameState = .menu }
+            })
         }
         .padding(.horizontal, 45)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,5 +46,5 @@ struct LeaderboardView: View {
 }
 
 #Preview {
-    LeaderboardView()
+    LeaderboardView(currentGameState: .constant(GameState.leaderboard))
 }

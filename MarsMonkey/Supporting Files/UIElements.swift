@@ -15,7 +15,7 @@ struct roundedButton: View {
     
     var body: some View {
         Button(action: {action(); lightHaptic()}){
-            StrokeText(text: title, width: 1)
+            StrokeText(text: title, strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: fontSize))
                 .foregroundColor(.mmPink)
                 .frame(maxWidth: .infinity)
@@ -39,15 +39,15 @@ struct PressEffectButtonStyle: ButtonStyle {
 // This structure is used to create a text with stroke
 struct StrokeText: View {
     let text: String
-    let width: CGFloat
+    let strokeWidth: CGFloat
 
     var body: some View {
         ZStack{
             ZStack{
-                Text(text).offset(x:  width, y:  width)
-                Text(text).offset(x: -width, y: -width)
-                Text(text).offset(x: -width, y:  width)
-                Text(text).offset(x:  width, y: -width)
+                Text(text).offset(x:  strokeWidth, y:  strokeWidth)
+                Text(text).offset(x: -strokeWidth, y: -strokeWidth)
+                Text(text).offset(x: -strokeWidth, y:  strokeWidth)
+                Text(text).offset(x:  strokeWidth, y: -strokeWidth)
             }
             .foregroundColor(.black)
             Text(text)
@@ -73,10 +73,10 @@ struct leaderboardParticipant: View {
             
             HStack(spacing: 10){
                 Group{
-                    StrokeText(text: place.description, width: 1)
+                    StrokeText(text: place.description, strokeWidth: 1)
                         .frame(width: 30, alignment: .leading)
                                     
-                    StrokeText(text: playerName, width: 1)
+                    StrokeText(text: playerName, strokeWidth: 1)
                     
                     Spacer()
                     
@@ -85,12 +85,41 @@ struct leaderboardParticipant: View {
                         .scaledToFit()
                         .frame(height: 35)
                     
-                    StrokeText(text: playerScore.description, width: 1)
+                    StrokeText(text: playerScore.description, strokeWidth: 1)
                         .frame(alignment: .trailing)
                 }
                 .foregroundColor(.mmLightPinkTitle)
                 .font(Font.custom("RedBurger", size: 20))
             }
+        }
+    }
+}
+
+//This structure is used to format and create game timer
+struct GameTimer: View {
+    var secondsLeft: Int
+
+    var body: some View {
+        StrokeText(text: "\(secondsLeft/60):\(secondsLeft%60)", strokeWidth: 1)
+            .font(Font.custom("RedBurger", size: 48))
+            .foregroundColor(.mmPink)
+    }
+}
+
+//This structure is used to create game score
+struct GameScore: View {
+    var currentScore: Int
+
+    var body: some View {
+        HStack{
+            Image(.palmTree)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 45)
+            
+            StrokeText(text: currentScore.description, strokeWidth: 1)
+                .font(Font.custom("RedBurger", size: 48))
+                .foregroundColor(.mmPink)
         }
     }
 }

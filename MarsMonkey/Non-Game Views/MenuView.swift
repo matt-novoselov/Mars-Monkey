@@ -9,20 +9,20 @@ import SwiftUI
 
 struct MenuView: View {
     
+    @Binding var currentGameState: GameState
+    
     @State var playerName: String = ""
     
     var body: some View {
         ZStack {
-            Rectangle()
+            Color(.mmUIBackground)
                 .ignoresSafeArea()
-                .foregroundColor(Color("MM UI Background"))
-                
             
             VStack{
-                StrokeText(text: "Mars Monkey", width: 1)
+                StrokeText(text: "Mars Monkey", strokeWidth: 1)
                     .font(Font.custom("RedBurger", size: 55))
-                    .foregroundColor(Color("MM Pink"))
-                
+                    .foregroundColor(.mmPink)
+
                 HStack {
                     TextField("Enter your name", text: $playerName)
                         .background(
@@ -36,27 +36,30 @@ struct MenuView: View {
                         .foregroundColor(.black)
                 }
                 .ignoresSafeArea(.keyboard)
-                    
                 
-                Image("Monkey on Mars planet")
+                Image(.monkeyOnMarsPlanet)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .position(CGPoint(x: 180, y: 180))
                 
-                roundedButton(title: "Play", action: {})
-                    .frame(width: 350)
-                roundedButton(title: "Leaderboard", action: {})
-                    .frame(width: 350)
-
+                roundedButton(title: "Play", action: {
+                    withAnimation { self.currentGameState = .playing }
+                })
+                
+                roundedButton(title: "Leaderboard", action: {
+                    withAnimation { self.currentGameState = .leaderboard }
+                })
+                
                 Spacer()
             }
+            .padding(.horizontal)
         }
     }
     
 }
 
- 
+
 #Preview {
-    MenuView()
+    MenuView(currentGameState: .constant(GameState.menu))
 }
 

@@ -14,7 +14,21 @@ struct GameView: View {
     @Binding var currentGameState: GameState
     
     var body: some View {
-        Text("GameView")
+        ZStack(alignment: .top){
+            // SpriteKit staff
+            Text("GameView")
+                .frame(maxHeight: .infinity)
+            
+            // UI overlay elements
+            HStack{
+                GameTimer(secondsLeft: 146)
+                
+                Spacer()
+                
+                GameScore(currentScore: 10)
+            }
+            .padding(.horizontal)
+        }
     }
 }
 
