@@ -13,6 +13,8 @@ struct MenuView: View {
     
     @State var playerName: String = ""
     
+    @FocusState var isFocused : Bool // Bool that checks if the keyboard is shown
+    
     var body: some View {
         ZStack {
             Color(.mmUIBackground)
@@ -22,18 +24,22 @@ struct MenuView: View {
                 StrokeText(text: "Mars Monkey", strokeWidth: 1)
                     .font(Font.custom("RedBurger", size: 55))
                     .foregroundColor(.mmPink)
-
+                
                 HStack {
                     TextField("Enter your name", text: $playerName)
                         .background(
                             Rectangle()
-                                .foregroundColor(Color("MM Pink Button"))
+                                .foregroundColor(.mmPinkButton)
                                 .cornerRadius(10)
                                 .frame(width: 340, height: 100, alignment: .center)
                         )
+                        .focused($isFocused)
                         .frame(width: 300)
                         .font(Font.custom("RedBurger", size: 30))
                         .foregroundColor(.black)
+                        .onTapGesture {
+                            isFocused = true
+                        }
                 }
                 .ignoresSafeArea(.keyboard)
                 
@@ -54,10 +60,11 @@ struct MenuView: View {
             }
             .padding(.horizontal)
         }
+        .onTapGesture {
+            isFocused=false
+        }
     }
-    
 }
-
 
 #Preview {
     MenuView(currentGameState: .constant(GameState.menu))
