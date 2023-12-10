@@ -17,6 +17,10 @@
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
 		CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A732B24947F00392E0E /* MenuView.swift */; };
 		CC7E7A762B24B80500392E0E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A752B24B80500392E0E /* GameOverView.swift */; };
+		CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADC92B25F3C900AB2AA0 /* GameView.swift */; };
+		CCEEADCC2B25F3E800AB2AA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADCB2B25F3E800AB2AA0 /* Constants.swift */; };
+		CCEEADD02B25F45200AB2AA0 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADCF2B25F45200AB2AA0 /* GameLogic.swift */; };
+		CCEEADD22B25F46800AB2AA0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADD12B25F46800AB2AA0 /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		1ACCA87F2B2365B100BCE4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CC7E7A732B24947F00392E0E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CC7E7A752B24B80500392E0E /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		CCEEADC92B25F3C900AB2AA0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		CCEEADCB2B25F3E800AB2AA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CCEEADCF2B25F45200AB2AA0 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		CCEEADD12B25F46800AB2AA0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +74,12 @@
 			children = (
 				1ACCA87F2B2365B100BCE4A6 /* Info.plist */,
 				1A3596272B2347630012D276 /* MarsMonkeyApp.swift */,
-				1ACCA8762B23607F00BCE4A6 /* Views */,
+				1A35962B2B2347640012D276 /* Assets.xcassets */,
+				CCEEADD32B25F60000AB2AA0 /* Supporting Files */,
+				CCEEADCE2B25F41F00AB2AA0 /* Game */,
+				1ACCA8762B23607F00BCE4A6 /* Non-Game Views */,
 				1ACCA8752B23606100BCE4A6 /* Models */,
 				1ACCA87B2B23626700BCE4A6 /* Resources */,
-				1A35962B2B2347640012D276 /* Assets.xcassets */,
 				1A35962D2B2347640012D276 /* Preview Content */,
 			);
 			path = MarsMonkey;
@@ -86,21 +96,18 @@
 		1ACCA8752B23606100BCE4A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1ACCA8732B23605C00BCE4A6 /* UIElements.swift */,
 				1A0396522B248E2E000DB43C /* Haptic Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1ACCA8762B23607F00BCE4A6 /* Views */ = {
+		1ACCA8762B23607F00BCE4A6 /* Non-Game Views */ = {
 			isa = PBXGroup;
 			children = (
 				CC7E7A732B24947F00392E0E /* MenuView.swift */,
 				1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */,
-				CC7E7A752B24B80500392E0E /* GameOverView.swift */,
-				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 			);
-			path = Views;
+			path = "Non-Game Views";
 			sourceTree = "<group>";
 		};
 		1ACCA87B2B23626700BCE4A6 /* Resources */ = {
@@ -117,6 +124,35 @@
 				1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CCEEADCE2B25F41F00AB2AA0 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				CCEEADCF2B25F45200AB2AA0 /* GameLogic.swift */,
+				CCEEADD12B25F46800AB2AA0 /* GameScene.swift */,
+				CCEEADD42B26039B00AB2AA0 /* Game Views */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		CCEEADD32B25F60000AB2AA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1ACCA8732B23605C00BCE4A6 /* UIElements.swift */,
+				CCEEADCB2B25F3E800AB2AA0 /* Constants.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCEEADD42B26039B00AB2AA0 /* Game Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
+				CC7E7A752B24B80500392E0E /* GameOverView.swift */,
+				CCEEADC92B25F3C900AB2AA0 /* GameView.swift */,
+			);
+			path = "Game Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,8 +231,12 @@
 				CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */,
 				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
 				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
+				CCEEADD22B25F46800AB2AA0 /* GameScene.swift in Sources */,
 				1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */,
+				CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */,
 				1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */,
+				CCEEADD02B25F45200AB2AA0 /* GameLogic.swift in Sources */,
+				CCEEADCC2B25F3E800AB2AA0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
