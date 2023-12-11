@@ -26,12 +26,15 @@ class GameScene: SKScene{
     
     let player = SKSpriteNode(imageNamed: "Monkey")
     let background = SKSpriteNode(imageNamed: "Mars Background")
+    let background2 = SKSpriteNode(imageNamed: "Mars Background")
     
     let cam = SKCameraNode()
     
     var 🕹️: Joystick = Joystick(radius: 150) // Creating a joystick
     var joystickPosX: CGFloat = 0 // var representing how far the joystick was dragged on X axis
     var joystickPosY: CGFloat = 0 // var representing how far the joystick was dragged on Y axis
+    
+    var amountOfCycles: Int = 0
     
     override func didMove(to view: SKView) {
         
@@ -43,9 +46,13 @@ class GameScene: SKScene{
         self.setUpPhysicsWorld() // Set up PhysicsWorld
         
         background.anchorPoint = CGPointZero
-        background.position = CGPointMake(0, background.size.height - 1)
         background.zPosition = -15
         self.addChild(background)
+        
+
+        background2.anchorPoint = CGPointZero
+        background2.zPosition = -15
+        self.addChild(background2)
 
         addChild(🕹️)
         addChild(🕹️.child)
@@ -100,6 +107,10 @@ class GameScene: SKScene{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
+        amountOfCycles = Int(cam.position.y) / Int(background2.size.height)
+        background.position = CGPointMake(0, background2.size.height * CGFloat(amountOfCycles) - background.size.height/2)
+        background2.position = CGPointMake(0, background2.size.height * CGFloat(amountOfCycles+1) - background2.size.height/2)
+        
         if gameLogic.secondsLeft == 0{
             gameLogic.finishTheGameWhenTimeIsUp()
         }
