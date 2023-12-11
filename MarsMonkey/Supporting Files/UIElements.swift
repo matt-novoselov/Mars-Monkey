@@ -95,17 +95,6 @@ struct leaderboardParticipant: View {
     }
 }
 
-//This structure is used to format and create game timer
-struct GameTimer: View {
-    var secondsLeft: Int
-
-    var body: some View {
-        StrokeText(text: "\(secondsLeft/60):\(secondsLeft%60)", strokeWidth: 1)
-            .font(Font.custom("RedBurger", size: 48))
-            .foregroundColor(.mmPink)
-    }
-}
-
 //This structure is used to create game score
 struct GameScore: View {
     var currentScore: Int
@@ -129,6 +118,8 @@ struct GameScore: View {
         roundedButton(title: "Play", action: {})
         
         leaderboardParticipant(isHighlighted: true)
+        
+        
     }
     .padding(.horizontal)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
