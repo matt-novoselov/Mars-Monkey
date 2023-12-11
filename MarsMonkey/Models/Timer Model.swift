@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 class TimerModel: ObservableObject {
-    @Published var seconds: Int = 120
+    @Published var seconds: Int = GameConstants().timerDurationInSeconds
     
     var formattedTime: String {
             let minutes = seconds / 60

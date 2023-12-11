@@ -24,7 +24,7 @@ struct GameConstants{
     let cameraMovementSpeed: CGFloat = 1
     
     // Timer Constant
-    let timerDurationInSeconds: Int = 120
+    let timerDurationInSeconds: Int = 12//120
     
     // Amount of seconds subtracted from the timer after touching a crater
     let craterImpactSeconds: Int = -10

@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var timerModel = TimerModel()
     
+    
     var body: some View {
         VStack {
             StrokeText(text: "\(timerModel.formattedTime)", strokeWidth: 1)

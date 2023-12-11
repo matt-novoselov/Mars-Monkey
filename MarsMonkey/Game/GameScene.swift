@@ -148,7 +148,7 @@ extension GameScene {
         let finalX: CGFloat = self.frame.width - 25
         
         let positionX = CGFloat.random(in: initialX...finalX)
-        let positionY = frame.height - 25
+        let positionY = cam.position.y + frame.height / 2 + 50
         
         return CGPoint(x: positionX, y: positionY)
     }
