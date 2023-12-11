@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct TestDataView: View {
+struct LeaderboardModel: View {
     
     @Environment(\.modelContext) private var context
     @Query private var items: [MyDataItem]
@@ -31,8 +31,6 @@ struct TestDataView: View {
                 )
             
             Button("Save") {
-                //                print(playerName)
-                //                print(score)
                 addAndCheckItem()
             }
             
@@ -46,13 +44,10 @@ struct TestDataView: View {
                 }
             }
             
-            
-            
         }
     }
     
     func addAndCheckItem(){
-//        let item = MyDataItem(name: playerName, score: score)
         if let index = items.firstIndex(where: {item in
             item.name == playerName})
         {
@@ -60,7 +55,8 @@ struct TestDataView: View {
                 items[index].score = score
                 try? context.save()
             }
-        }else{
+        }
+        else{
             let newItem = MyDataItem(name: playerName, score: score)
             context.insert(newItem)
         }
@@ -68,21 +64,16 @@ struct TestDataView: View {
     }
     
     func ordinatedItems() -> [MyDataItem] {
-//        let sortedItems = items.sort { (item1, item2) -> Bool in
-//            return item1.score < item2.score
-//        }
-        
         var sortedItems: [MyDataItem] {
             return items.sorted { $0.score > $1.score }
         }
 
-        
         return sortedItems
     }
     
 }
 
 #Preview {
-    TestDataView()
+    LeaderboardModel()
         .modelContainer(for: MyDataItem.self)
 }

@@ -23,12 +23,12 @@ struct LeaderboardView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0){
-                        ForEach((1...15), id: \.self) { place in
-                            leaderboardParticipant(
-                                place: place,
-                                isHighlighted: place == 5 ? true : false
-                            )
-                        }
+                        leaderboardParticipant(
+                            playerName: "String",
+                            playerScore: 100,
+                            place: 0,
+                            isHighlighted: false
+                        )
                     }
                     .padding(.horizontal)
                 }
