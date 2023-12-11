@@ -148,11 +148,11 @@ extension GameScene {
     }
     
     private func randomAsteroidPosition() -> CGPoint {
-        let initialX: CGFloat = 25
-        let finalX: CGFloat = self.frame.width - 25
+        let initialX: CGFloat = 100
+        let finalX: CGFloat = self.frame.width - 100
         
         let positionX = CGFloat.random(in: initialX...finalX)
-        let positionY = cam.position.y + frame.height / 2 + 50
+        let positionY = cam.position.y + frame.height
         
         return CGPoint(x: positionX, y: positionY)
     }
@@ -175,7 +175,7 @@ extension GameScene {
         
         newAsteroid.run(SKAction.sequence([
             SKAction.wait(forDuration: 5.0),
-            SKAction.removeFromParent()
+//            SKAction.removeFromParent()
         ]))
     }
     
