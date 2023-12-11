@@ -16,6 +16,7 @@ class GameLogic: ObservableObject{
     func setUpGame(){
         
         self.currentScore = 0
+        self.secondsLeft = GameConstants().timerDurationInSeconds
         self.isTimeUp = false
         self.isRedLineHit = false
         
@@ -23,6 +24,7 @@ class GameLogic: ObservableObject{
     
     // Variable Used to Store the Current Score of the Player
     @Published var currentScore: Int = 0
+    @Published var secondsLeft: Int = 0
     
     // Increases the Score by One
     func scoreIncreaseByOne(points: Int) {

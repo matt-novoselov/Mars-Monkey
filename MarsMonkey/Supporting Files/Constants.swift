@@ -17,6 +17,8 @@ enum GameState{
 }
 
 struct GameConstants{
+    // Players speed in pixels
+    let playerSpeed: CGFloat = 1
     
     // Timer Constant
     let timerDurationInSeconds: Int = 120

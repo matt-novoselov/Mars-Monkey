@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct GameView: View {
     
@@ -13,19 +14,22 @@ struct GameView: View {
     
     @Binding var currentGameState: GameState
     
+    var scene = GameScene()
+    
     var body: some View {
         ZStack(alignment: .top){
             // SpriteKit staff
-            Text("GameView")
-                .frame(maxHeight: .infinity)
             
+            SpriteView(scene: scene)
+                .ignoresSafeArea()
+  
             // UI overlay elements
             HStack{
-                GameTimer(secondsLeft: 146)
+                GameTimer(secondsLeft: gameLogic.secondsLeft)
                 
                 Spacer()
                 
-                GameScore(currentScore: 10)
+                GameScore(currentScore: gameLogic.currentScore)
             }
             .padding(.horizontal)
         }
