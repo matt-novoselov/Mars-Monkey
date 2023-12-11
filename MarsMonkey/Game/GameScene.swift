@@ -27,6 +27,7 @@ class GameScene: SKScene{
     let player = SKSpriteNode(imageNamed: "Monkey")
     let background = SKSpriteNode(imageNamed: "Mars Background")
     let background2 = SKSpriteNode(imageNamed: "Mars Background")
+    let redLine = SKSpriteNode(imageNamed: "RedLine")
     
     let cam = SKCameraNode()
     
@@ -53,7 +54,13 @@ class GameScene: SKScene{
         background2.anchorPoint = CGPointZero
         background2.zPosition = -15
         self.addChild(background2)
+        
+        redLine.anchorPoint = CGPointZero
+        redLine.zPosition = 98
+        self.addChild(redLine)
 
+        🕹️.zPosition = 99
+        🕹️.child.zPosition = 100
         addChild(🕹️)
         addChild(🕹️.child)
         
@@ -107,6 +114,8 @@ class GameScene: SKScene{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
+        redLine.position = CGPoint(x: 0, y: cam.position.y - scene!.frame.width - 100)
+        
         amountOfCycles = Int(cam.position.y) / Int(background2.size.height)
         background.position = CGPointMake(0, background2.size.height * CGFloat(amountOfCycles) - background.size.height/2)
         background2.position = CGPointMake(0, background2.size.height * CGFloat(amountOfCycles+1) - background2.size.height/2)
