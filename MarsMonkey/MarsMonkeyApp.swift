@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MarsMonkeyApp: App {
@@ -15,5 +16,6 @@ struct MarsMonkeyApp: App {
                 .preferredColorScheme(.light)
                 .statusBar(hidden: true)
         }
+        .modelContainer(for: MyDataItem.self)
     }
 }
