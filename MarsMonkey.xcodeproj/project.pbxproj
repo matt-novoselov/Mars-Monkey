@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* Timer Model.swift */; };
+		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
 		1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3596272B2347630012D276 /* MarsMonkeyApp.swift */; };
 		1A35962C2B2347640012D276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962B2B2347640012D276 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AAC29CF2B270BE00069EE9F /* Timer Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer Model.swift"; sourceTree = "<group>"; };
+		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
 		1A3596242B2347630012D276 /* MarsMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3596272B2347630012D276 /* MarsMonkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsMonkeyApp.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0396522B248E2E000DB43C /* Haptic Model.swift */,
+				0AAC29CF2B270BE00069EE9F /* Timer Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 				CC7E7A752B24B80500392E0E /* GameOverView.swift */,
 				CCEEADC92B25F3C900AB2AA0 /* GameView.swift */,
+				0AAC29D12B2710050069EE9F /* TimerView.swift */,
 			);
 			path = "Game Views";
 			sourceTree = "<group>";
@@ -234,10 +240,12 @@
 			files = (
 				CC7E7A762B24B80500392E0E /* GameOverView.swift in Sources */,
 				1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */,
+				0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */,
 				1A388A402B2608DF000A2507 /* ContentView.swift in Sources */,
 				CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */,
 				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
 				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
+				0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */,
 				CCEEADD22B25F46800AB2AA0 /* GameScene.swift in Sources */,
 				1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */,
 				CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */,
