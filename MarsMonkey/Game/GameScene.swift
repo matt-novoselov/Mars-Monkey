@@ -61,13 +61,8 @@ class GameScene: SKScene{
         player.physicsBody?.categoryBitMask = InstanceCategory.asteroid
         player.physicsBody?.contactTestBitMask = InstanceCategory.asteroid
         
-        // Limit player's movement on X axis
-        let xRange = SKRange(lowerLimit: 0 + 25, upperLimit: frame.width - 25)
-        let xConstraint = SKConstraint.positionX(xRange)
-        self.player.constraints = [xConstraint]
         addChild(player)
-        
-        addChild(self.player)
+
         cam.position = player.position
         self.camera = cam
     }
@@ -126,8 +121,6 @@ class GameScene: SKScene{
                                       y: player.position.y + (joystickPosY * GameConstants().playerSpeed))
         }
     }
-    
-    
 }
 
 // Game Scene Set Up
@@ -196,24 +189,6 @@ extension GameScene{
         run(asteroidCycleAction)
     }
 }
-
-//extension GameScene: SKPhysicsContactDelegate{
-//    func didBegin(_ contact: SKPhysicsContact) {
-//        let firstBody: SKPhysicsBody = contact.bodyA
-//        let secondBody: SKPhysicsBody = contact.bodyB
-//        
-//        if let node = firstBody.node, node.name == "asteroid"{
-//            node.removeFromParent()
-//            
-//        }
-//        if let node = secondBody.node, node.name == "asteroid"{
-//            node.removeFromParent()
-//        
-//        }
-//        
-//        print("Contact happened!")
-//    }
-//}
 
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
