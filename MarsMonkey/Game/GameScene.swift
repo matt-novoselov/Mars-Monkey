@@ -67,7 +67,7 @@ class GameScene: SKScene{
         player.position = CGPoint(x: size.width/2, y: size.height/2)
         player.zPosition = 10
         player.setScale(0.05)
-        player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width-50, height: player.size.height))
         player.physicsBody?.affectedByGravity = false
         
         // Setting CollisionBitMask, CategoryBitMask and ContactBitMask for a Player
@@ -184,7 +184,7 @@ extension GameScene {
         newAsteroid.zPosition = player.zPosition
         newAsteroid.position = position
         
-        newAsteroid.physicsBody = SKPhysicsBody(circleOfRadius: 25.0)
+        newAsteroid.physicsBody = SKPhysicsBody(circleOfRadius: newAsteroid.size.width/2)
         newAsteroid.physicsBody?.affectedByGravity = true
         
         newAsteroid.physicsBody?.categoryBitMask = InstanceCategory.asteroid

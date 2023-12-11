@@ -19,7 +19,7 @@ struct GameView: View {
         ZStack(alignment: .top){
             // SpriteKit staff
             
-            SpriteView(scene: scene)
+            SpriteView(scene: scene, debugOptions: [.showsPhysics])
                 .ignoresSafeArea()
   
             // UI overlay elements
