@@ -14,6 +14,8 @@ struct GameView: View {
     
     @Binding var currentGameState: GameState
     
+    
+    
     var scene = GameScene()
     
     var body: some View {
@@ -25,7 +27,7 @@ struct GameView: View {
   
             // UI overlay elements
             HStack{
-                GameTimer(secondsLeft: gameLogic.secondsLeft)
+                TimerView()
                 
                 Spacer()
                 
