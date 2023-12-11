@@ -9,11 +9,11 @@ import SwiftUI
 import Foundation
 
 class TimerModel: ObservableObject {
-    @Published var seconds: Int = GameConstants().timerDurationInSeconds
+    @Published var secondsLeft: Int = GameLogic.shared.secondsLeft
     
     var formattedTime: String {
-            let minutes = seconds / 60
-            let seconds = self.seconds % 60
+            let minutes = secondsLeft / 60
+            let seconds = self.secondsLeft % 60
             return String(format: "%01d:%02d", minutes, seconds)
         }
     
@@ -27,20 +27,11 @@ class TimerModel: ObservableObject {
     // This function starts, decrement and increment the timer in some cases
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if self.seconds > 0 {
-                self.seconds -= 1
+            if self.secondsLeft > 0 {
+                self.secondsLeft -= 1
+                GameLogic.shared.secondsLeft = self.secondsLeft
             } else {
                 self.timer?.invalidate()
-            }
-
-            // Esempio: Decrementa di 10 secondi in certe circostanze
-            if self.seconds == 60 {
-                self.decrementTimer(by: 10)
-            }
-
-            // Esempio: Decrementa di 10 secondi in un altro caso
-            if self.seconds == 30 {
-                self.decrementTimer(by: 10)
             }
         }
     }
@@ -50,11 +41,12 @@ class TimerModel: ObservableObject {
     }
 
     func decrementTimer(by amount: Int) {
-        if seconds > amount {
-            seconds -= amount
+        if secondsLeft > amount {
+            secondsLeft -= amount
         } else {
-            seconds = 0
+            secondsLeft = 0
             stopTimer()
         }
+        GameLogic.shared.secondsLeft = self.secondsLeft
     }
 }

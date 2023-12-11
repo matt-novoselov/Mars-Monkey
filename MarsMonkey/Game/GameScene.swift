@@ -100,6 +100,10 @@ class GameScene: SKScene{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
+        if gameLogic.secondsLeft == 0{
+            gameLogic.finishTheGameWhenTimeIsUp()
+        }
+        
         🕹️.position = CGPoint(x: scene!.frame.width/2, y: cam.position.y - scene!.frame.height/3) // Set position of the joystick
         
         if !🕹️.isActive{

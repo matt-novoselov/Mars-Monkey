@@ -9,12 +9,9 @@ import SwiftUI
 import SpriteKit
 
 struct GameView: View {
-    
     @StateObject var gameLogic: GameLogic = GameLogic.shared
     
     @Binding var currentGameState: GameState
-    
-    
     
     var scene = GameScene()
     

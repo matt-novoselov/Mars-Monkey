@@ -28,7 +28,6 @@ class GameLogic: ObservableObject{
     
     // Increases the Score by One
     func scoreIncreaseByOne(points: Int) {
-
         self.currentScore += 1
     }
     
@@ -41,6 +40,7 @@ class GameLogic: ObservableObject{
     func finishTheGameWhenRedLineHit() {
         if self.isRedLineHit == false {
             self.isRedLineHit = true
+            print("The game was finished, because the red line was touched")
         }
     }
     
@@ -50,6 +50,7 @@ class GameLogic: ObservableObject{
     func finishTheGameWhenTimeIsUp() {
         if self.isTimeUp == false {
             self.isTimeUp = true
+            print("The game was finished, because the timer expired")
         }
     }
 }
