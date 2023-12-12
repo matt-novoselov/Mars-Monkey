@@ -126,6 +126,8 @@ class GameScene: SKScene{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
+        GameLogic.shared.secondsLeft = timerModel.secondsLeft
+        
         redLine.position = CGPoint(x: 0, y: cam.position.y - scene!.frame.width - 100)
         
         amountOfCycles = Int(cam.position.y) / Int(background2.size.height)
@@ -242,13 +244,8 @@ extension GameScene: SKPhysicsContactDelegate {
             heavyHaptic()
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
-//            print("Asteroid removed due to contact with the player.")
-            if timerModel.secondsLeft + GameConstants().decrementSecondsNumber > 0{
-                timerModel.decrementTimer(by: GameConstants().decrementSecondsNumber)
-            }
-            else{
-                timerModel.secondsLeft = 0
-            }
+
+            timerModel.decrementTimer(by: GameConstants().decrementSecondsNumber)
         }
     }
 }
