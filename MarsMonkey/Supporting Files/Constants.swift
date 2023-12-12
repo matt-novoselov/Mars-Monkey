@@ -17,6 +17,9 @@ enum GameState{
 }
 
 struct GameConstants{
+    // Disable on release
+    let isDebugging = false
+    
     // Players speed in pixels
     let playerSpeed: CGFloat = 1
     

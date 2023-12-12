@@ -11,6 +11,7 @@ struct MenuView: View {
     
     @Binding var currentGameState: GameState
     
+    @AppStorage("savedPlayerName") var savedPlayerName: String = ""
     @State var playerName: String = ""
     
     @FocusState var isFocused : Bool // Bool that checks if the keyboard is shown
@@ -39,6 +40,12 @@ struct MenuView: View {
                         .foregroundColor(.black)
                         .onTapGesture {
                             isFocused = true
+                        }
+                        .onChange(of: playerName){
+                            savedPlayerName = playerName
+                        }
+                        .onAppear(){
+                            playerName = savedPlayerName
                         }
                 }
                 .ignoresSafeArea(.keyboard)

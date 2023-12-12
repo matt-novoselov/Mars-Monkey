@@ -17,18 +17,25 @@ struct GameView: View {
             GameScene(timerModel: TimerModel.shared)
         }
     
+
     var body: some View {
         ZStack(alignment: .top){
             // SpriteKit staff
             
-            SpriteView(scene: scene, debugOptions: [.showsPhysics])
-                .ignoresSafeArea()
+            SpriteView(
+                scene: scene
+                //,debugOptions: [.showsPhysics]
+            )
+            .ignoresSafeArea()
   
             // UI overlay elements
             HStack{
                 TimerView()
                 
                 Spacer()
+                
+                Text(gameLogic.secondsLeft.description)
+                    .opacity(GameConstants().isDebugging ? 1 : 0)
                 
                 GameScore(currentScore: gameLogic.currentScore)
             }

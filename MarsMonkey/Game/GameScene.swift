@@ -79,7 +79,7 @@ class GameScene: SKScene{
         player.position = CGPoint(x: size.width/2, y: size.height/2)
         player.zPosition = 10
         player.setScale(0.05)
-        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width-50, height: player.size.height))
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width, height: player.size.height))
         player.physicsBody?.affectedByGravity = false
         
         // Setting CollisionBitMask, CategoryBitMask and ContactBitMask for a Player
@@ -166,7 +166,7 @@ extension GameScene{
         self.startAsteroidsCycle()
     }
     private func setUpPhysicsWorld() {
-        physicsWorld.gravity = CGVector(dx: 0, dy: -0.9)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -1.4)
         physicsWorld.contactDelegate = self
     }
 }
@@ -189,6 +189,11 @@ extension GameScene {
         return CGPoint(x: positionX, y: positionY)
     }
     
+    // Function to generate a random duration between min and max
+    func randomDuration(min: TimeInterval, max: TimeInterval) -> TimeInterval {
+        return TimeInterval.random(in: min...max)
+    }
+    
     private func newAsteroid(at position: CGPoint) {
         let newAsteroid = SKSpriteNode(imageNamed: "asteroid")
         newAsteroid.name = "asteroid"
@@ -206,7 +211,7 @@ extension GameScene {
         addChild(newAsteroid)
         
         newAsteroid.run(SKAction.sequence([
-            SKAction.wait(forDuration: 5.0),
+            SKAction.wait(forDuration: randomDuration(min: 3.0, max: 10.0)),
 //            SKAction.removeFromParent()
         ]))
     }
