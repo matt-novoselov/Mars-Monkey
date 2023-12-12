@@ -239,6 +239,7 @@ extension GameScene: SKPhysicsContactDelegate {
         
         // When Asteroid Contacts With a Player
         if let asteroid = asteroidNode {
+            heavyHaptic()
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
 //            print("Asteroid removed due to contact with the player.")

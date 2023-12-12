@@ -6,3 +6,9 @@ func lightHaptic() {
     let lightHaptic = UIImpactFeedbackGenerator(style: .light)
     lightHaptic.impactOccurred()
 }
+
+// This function is used to perform heavy haptic feedback. Used when pressing a button
+func heavyHaptic() {
+    let lightHaptic = UIImpactFeedbackGenerator(style: .heavy)
+    lightHaptic.impactOccurred()
+}
