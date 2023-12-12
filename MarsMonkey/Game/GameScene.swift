@@ -154,7 +154,7 @@ extension GameScene{
         self.startAsteroidsCycle()
     }
     private func setUpPhysicsWorld() {
-        physicsWorld.gravity = CGVector(dx: 0, dy: -0.9)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -1.4)
         physicsWorld.contactDelegate = self
     }
 }
@@ -177,6 +177,11 @@ extension GameScene {
         return CGPoint(x: positionX, y: positionY)
     }
     
+    // Function to generate a random duration between min and max
+    func randomDuration(min: TimeInterval, max: TimeInterval) -> TimeInterval {
+        return TimeInterval.random(in: min...max)
+    }
+    
     private func newAsteroid(at position: CGPoint) {
         let newAsteroid = SKSpriteNode(imageNamed: "asteroid")
         newAsteroid.name = "asteroid"
@@ -194,7 +199,7 @@ extension GameScene {
         addChild(newAsteroid)
         
         newAsteroid.run(SKAction.sequence([
-            SKAction.wait(forDuration: 5.0),
+            SKAction.wait(forDuration: randomDuration(min: 3.0, max: 10.0)),
 //            SKAction.removeFromParent()
         ]))
     }
