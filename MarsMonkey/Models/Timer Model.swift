@@ -9,9 +9,8 @@ import SwiftUI
 import Foundation
 
 class TimerModel: ObservableObject {
-    
     static let shared = TimerModel()
-    @Published var secondsLeft: Int = GameLogic.shared.secondsLeft
+    @Published var secondsLeft: Int = GameConstants().timerDurationInSeconds
     
     var formattedTime: String {
         let minutes = secondsLeft / 60

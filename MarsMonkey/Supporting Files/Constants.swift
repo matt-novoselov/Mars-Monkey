@@ -17,10 +17,6 @@ enum GameState{
 }
 
 struct GameConstants{
-    // Disable on release
-    let isDebugging = false
-    
-    
     // - - - - SPEED - - - - //
     
     // Players speed in pixels
@@ -44,4 +40,16 @@ struct GameConstants{
     
     // Amount of seconds added to the timer after planting a banana tree
     let bananaTreeRewardSeconds: Int = 10
+}
+
+// - - - - INSTANCE CATEGORY - - - - //
+
+// Assigning a Binary Number Identifier to Each Instance of the Game
+struct InstanceCategory{
+    static let none: UInt32 = 0
+    static let all: UInt32 = UInt32.max
+    static let player: UInt32 = 0b1 // 1
+    static let asteroid: UInt32 = 0b10 // 2
+    static let crater: UInt32 = 0b11 // 3
+    static let bananaPlantArea: UInt32 = 0b100 // 4
 }

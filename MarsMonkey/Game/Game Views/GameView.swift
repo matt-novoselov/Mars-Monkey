@@ -34,9 +34,6 @@ struct GameView: View {
                 
                 Spacer()
                 
-                Text(gameLogic.secondsLeft.description)
-                    .opacity(GameConstants().isDebugging ? 1 : 0)
-                
                 GameScore(currentScore: gameLogic.currentScore)
             }
             .padding(.horizontal)

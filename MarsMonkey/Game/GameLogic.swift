@@ -8,23 +8,20 @@
 import Foundation
 
 class GameLogic: ObservableObject{
+    let gameConstants: GameConstants = GameConstants()
     
     // Variable Used To Transfer the Values of Variables from this File to Other Files
     static let shared: GameLogic = GameLogic()
     
     // Sets Values of Variables at the Beginning of the Game
     func setUpGame(){
-        
         self.currentScore = 0
-        self.secondsLeft = GameConstants().timerDurationInSeconds
         self.isTimeUp = false
         self.isRedLineHit = false
-        
     }
     
     // Variable Used to Store the Current Score of the Player
     @Published var currentScore: Int = 0
-    @Published var secondsLeft: Int = GameConstants().timerDurationInSeconds
     
     // Increases the Score by One
     func scoreIncreaseByOne(points: Int) {
