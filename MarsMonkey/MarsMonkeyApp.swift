@@ -15,6 +15,7 @@ struct MarsMonkeyApp: App {
             ContentView()
                 .preferredColorScheme(.light)
                 .statusBar(hidden: true)
+                .persistentSystemOverlays(.hidden)
         }
         .modelContainer(for: MyDataItem.self)
     }
