@@ -13,7 +13,9 @@ struct GameView: View {
     
     @Binding var currentGameState: GameState
     
-    var scene = GameScene()
+    var scene: GameScene {
+            GameScene(timerModel: TimerModel.shared)
+        }
     
     var body: some View {
         ZStack(alignment: .top){

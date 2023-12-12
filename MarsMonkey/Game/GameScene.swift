@@ -24,6 +24,18 @@ struct InstanceCategory{
 class GameScene: SKScene{
     var gameLogic: GameLogic = GameLogic.shared
     
+    var timerModel: TimerModel
+
+        init(timerModel: TimerModel) {
+            self.timerModel = timerModel
+            super.init(size: CGSize(width: 1179, height: 2556))
+            // Rest of your GameScene initialization
+        }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let player = SKSpriteNode(imageNamed: "Monkey")
     let background = SKSpriteNode(imageNamed: "Mars Background")
     let background2 = SKSpriteNode(imageNamed: "Mars Background")
@@ -214,14 +226,20 @@ extension GameScene{
     }
 }
 
+// Registering the Contact of an Asteroid with a Player
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         let asteroidNode = contact.bodyA.node?.name == "asteroid" ? contact.bodyA.node : contact.bodyB.node
-
+        
+        // When Asteroid Contacts With a Player
         if let asteroid = asteroidNode {
+            // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
             print("Asteroid removed due to contact with the player.")
+            if timerModel.secondsLeft > 0{
+                timerModel.decrementTimer(by: GameConstants().craterImpactSeconds)
+            }
         }
     }
 }

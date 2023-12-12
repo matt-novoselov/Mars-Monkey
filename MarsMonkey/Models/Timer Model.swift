@@ -9,6 +9,8 @@ import SwiftUI
 import Foundation
 
 class TimerModel: ObservableObject {
+    
+    static let shared = TimerModel()
     @Published var secondsLeft: Int = GameLogic.shared.secondsLeft
     
     var formattedTime: String {
@@ -31,7 +33,8 @@ class TimerModel: ObservableObject {
                 self.secondsLeft -= 1
                 GameLogic.shared.secondsLeft = self.secondsLeft
             } else {
-                self.timer?.invalidate()
+                //self.timer?.invalidate()
+                self.stopTimer()
             }
         }
     }
@@ -41,11 +44,12 @@ class TimerModel: ObservableObject {
     }
 
     func decrementTimer(by amount: Int) {
+        print(secondsLeft)
+        
         if secondsLeft > amount {
-            secondsLeft -= amount
+            secondsLeft += amount
         } else {
             secondsLeft = 0
-            stopTimer()
         }
         GameLogic.shared.secondsLeft = self.secondsLeft
     }
