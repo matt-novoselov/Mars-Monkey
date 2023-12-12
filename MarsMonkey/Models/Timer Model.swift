@@ -41,6 +41,7 @@ class TimerModel: ObservableObject {
 
     func stopTimer() {
         timer?.invalidate()
+        secondsLeft = 0
     }
 
     func decrementTimer(by amount: Int) {

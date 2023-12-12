@@ -241,9 +241,12 @@ extension GameScene: SKPhysicsContactDelegate {
         if let asteroid = asteroidNode {
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
-            print("Asteroid removed due to contact with the player.")
-            if timerModel.secondsLeft > 0{
-                timerModel.decrementTimer(by: GameConstants().craterImpactSeconds)
+//            print("Asteroid removed due to contact with the player.")
+            if timerModel.secondsLeft + GameConstants().decrementSecondsNumber > 0{
+                timerModel.decrementTimer(by: GameConstants().decrementSecondsNumber)
+            }
+            else{
+                timerModel.secondsLeft = 0
             }
         }
     }

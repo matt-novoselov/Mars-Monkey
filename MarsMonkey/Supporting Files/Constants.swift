@@ -18,7 +18,7 @@ enum GameState{
 
 struct GameConstants{
     // Disable on release
-    let isDebugging = false
+    let isDebugging = true
     
     // Players speed in pixels
     let playerSpeed: CGFloat = 1
@@ -27,10 +27,10 @@ struct GameConstants{
     let cameraMovementSpeed: CGFloat = 1
     
     // Timer Constant
-    let timerDurationInSeconds: Int = 120
+    let timerDurationInSeconds: Int = 30
     
     // Amount of seconds subtracted from the timer after touching a crater
-    let craterImpactSeconds: Int = -10
+    let decrementSecondsNumber: Int = -10
     
     // Amount of seconds added to the timer after planting a banana tree
     let bananaTreeRewardSeconds: Int = 10
