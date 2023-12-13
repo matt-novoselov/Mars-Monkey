@@ -7,7 +7,6 @@
 
 import SpriteKit
 
-
 extension GameScene{
     func setUpPlayer() {
         player.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -16,9 +15,10 @@ extension GameScene{
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width, height: player.size.height))
         player.physicsBody?.affectedByGravity = false
         // Setting CollisionBitMask, CategoryBitMask and ContactBitMask for a Player
-        player.physicsBody?.collisionBitMask = InstanceCategory.player
-        player.physicsBody?.categoryBitMask = InstanceCategory.asteroid
+        player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.categoryBitMask = InstanceCategory.player
         player.physicsBody?.contactTestBitMask = InstanceCategory.asteroid
+        player.physicsBody?.isDynamic = true
         addChild(player)
     }
     
