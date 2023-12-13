@@ -71,8 +71,9 @@ extension GameScene: SKPhysicsContactDelegate {
         if let asteroid = asteroidNode {
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
-            
+            // Add a Haptic Effect
             heavyHaptic()
+            // Decrement timer
             timerModel.decrementTimer(by: gameConstants.decrementSecondsNumber)
         }
     }

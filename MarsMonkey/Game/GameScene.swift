@@ -17,7 +17,7 @@ class GameScene: SKScene{
     var timerModel: TimerModel
     
     let player = SKSpriteNode(imageNamed: "Monkey")
-
+    
     let background = SKSpriteNode(imageNamed: "Mars Background")
     let background2 = SKSpriteNode(imageNamed: "Mars Background")
     var amountOfCycles: Int = 0
@@ -73,6 +73,7 @@ extension GameScene{
         self.startAsteroidsCycle()
         self.physicsWorld.contactDelegate = self
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
+        self.createCrater()
     }
     
     private func setUpPhysicsWorld() {

@@ -27,6 +27,7 @@
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
 		4E5209F92B27151800368A14 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5209F82B27151800368A14 /* DataItem.swift */; };
 		4E5209FB2B2716A200368A14 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */; };
+		CC17CAD22B290E450037BEB2 /* gcCraters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC17CAD12B290E450037BEB2 /* gcCraters.swift */; };
 		CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A732B24947F00392E0E /* MenuView.swift */; };
 		CC7E7A762B24B80500392E0E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A752B24B80500392E0E /* GameOverView.swift */; };
 		CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADC92B25F3C900AB2AA0 /* GameView.swift */; };
@@ -58,6 +59,7 @@
 		1ACCA87F2B2365B100BCE4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4E5209F82B27151800368A14 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
+		CC17CAD12B290E450037BEB2 /* gcCraters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcCraters.swift; sourceTree = "<group>"; };
 		CC7E7A732B24947F00392E0E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CC7E7A752B24B80500392E0E /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		CCEEADC92B25F3C900AB2AA0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				1A400F5C2B29056A00845F3E /* gcBackground.swift */,
 				1A400F5E2B29059300845F3E /* gcRedLine.swift */,
 				1A400F602B2905B900845F3E /* gcAsteroids.swift */,
+				CC17CAD12B290E450037BEB2 /* gcCraters.swift */,
 			);
 			path = "Game Components";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */,
 				1A400F5F2B29059300845F3E /* gcRedLine.swift in Sources */,
 				1A388A402B2608DF000A2507 /* ContentView.swift in Sources */,
+				CC17CAD22B290E450037BEB2 /* gcCraters.swift in Sources */,
 				CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */,
 				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
 				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
