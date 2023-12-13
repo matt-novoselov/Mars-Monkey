@@ -16,6 +16,7 @@ enum GameState{
 }
 
 struct GameConstants{
+    let isDebug: Bool = false
     // - - - - SPEED - - - - //
     
     // Players speed in pixels

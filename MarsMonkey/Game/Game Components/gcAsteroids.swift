@@ -40,7 +40,8 @@ extension GameScene{
         
         newAsteroid.physicsBody?.categoryBitMask = InstanceCategory.asteroid
         newAsteroid.physicsBody?.contactTestBitMask = InstanceCategory.player
-        newAsteroid.physicsBody?.collisionBitMask = InstanceCategory.player
+        newAsteroid.physicsBody?.collisionBitMask = 0
+        newAsteroid.physicsBody?.isDynamic = true
         
         addChild(newAsteroid)
         
@@ -63,12 +64,11 @@ extension GameScene{
 }
 
 // Registering the Contact of an Asteroid with a Player
-extension GameScene: SKPhysicsContactDelegate {
-    func didBegin(_ contact: SKPhysicsContact) {
-        let asteroidNode = contact.bodyA.node?.name == "asteroid" ? contact.bodyA.node : contact.bodyB.node
-        
+extension GameScene {
+    
+    func handleAsteroidContact(asteroid: SKNode) {
         // When Asteroid Contacts With a Player
-        if let asteroid = asteroidNode {
+        if asteroid.name == "asteroid" {
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
             // Add a Haptic Effect

@@ -77,3 +77,31 @@ extension GameScene{
         physicsWorld.contactDelegate = self
     }
 }
+
+// Registering the Contact of the Player With Objects (Craters and Asteroids)
+extension GameScene: SKPhysicsContactDelegate{
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA
+        let bodyB = contact.bodyB
+        
+        // Check if either body is nil
+        guard let nodeA = bodyA.node, let nodeB = bodyB.node else {
+            return
+        }
+        
+        // Check if one of the bodies is the player and the other is an asteroid
+        if (bodyA.categoryBitMask == InstanceCategory.player && bodyB.categoryBitMask == InstanceCategory.asteroid) ||
+            (bodyA.categoryBitMask == InstanceCategory.asteroid && bodyB.categoryBitMask == InstanceCategory.player) {
+            handleAsteroidContact(asteroid: bodyA.categoryBitMask == InstanceCategory.asteroid ? nodeA : nodeB)
+        }
+        
+        // Check if one of the bodies is the player and the other is a crater
+        if (bodyA.categoryBitMask == InstanceCategory.player && bodyB.categoryBitMask == InstanceCategory.crater) ||
+            (bodyA.categoryBitMask == InstanceCategory.crater && bodyB.categoryBitMask == InstanceCategory.player) {
+            // Handle crater contact
+            handleCraterContact(crater: bodyA.categoryBitMask == InstanceCategory.crater ? nodeA : nodeB)
+        }
+    }
+    
+}
