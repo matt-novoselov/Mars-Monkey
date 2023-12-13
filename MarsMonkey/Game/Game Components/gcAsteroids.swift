@@ -73,7 +73,7 @@ extension GameScene: SKPhysicsContactDelegate {
             asteroid.removeFromParent()
             
             heavyHaptic()
-            timerModel.decrementTimer(by: gameConstants.decrementSecondsNumber)
+            timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
     }
 }
