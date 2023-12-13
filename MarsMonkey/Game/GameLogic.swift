@@ -17,7 +17,6 @@ class GameLogic: ObservableObject{
     func setUpGame(){
         self.currentScore = 0
         self.isTimeUp = false
-        self.isRedLineHit = false
     }
     
     // Variable Used to Store the Current Score of the Player
@@ -29,19 +28,6 @@ class GameLogic: ObservableObject{
     }
     
     // Game Finishing Conditions:
-    
-    // 1. Hitting Red Line
-    
-    @Published var isRedLineHit: Bool = false
-    
-    func finishTheGameWhenRedLineHit() {
-        if self.isRedLineHit == false {
-            self.isRedLineHit = true
-            print("The game was finished, because the red line was touched")
-        }
-    }
-    
-    // 2. Running out of Time
     
     @Published var isTimeUp: Bool = false
     func finishTheGameWhenTimeIsUp() {

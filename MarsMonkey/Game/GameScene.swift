@@ -21,8 +21,6 @@ class GameScene: SKScene{
     let background = SKSpriteNode(imageNamed: "Mars Background")
     let background2 = SKSpriteNode(imageNamed: "Mars Background")
     var amountOfCycles: Int = 0
-
-    let redLine = SKSpriteNode(imageNamed: "RedLine")
     
     let cam = SKCameraNode()
 
@@ -50,7 +48,6 @@ class GameScene: SKScene{
         self.setUpPlayer()
         self.setUpCamera()
         self.setUpBackground()
-        self.setUpRedLine()
     }
     
     override func update(_ currentTime: CFTimeInterval) {
@@ -58,7 +55,6 @@ class GameScene: SKScene{
         self.playerUpdate()
         self.cameraUpdate()
         self.backgroundUpdate()
-        self.redLineUpdate()
 
         if timerModel.secondsLeft == 0{
             gameLogic.finishTheGameWhenTimeIsUp()
