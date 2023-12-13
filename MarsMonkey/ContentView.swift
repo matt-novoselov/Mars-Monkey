@@ -35,10 +35,6 @@ struct ContentView: View {
             GameView(currentGameState: $currentGameState)
                 .environmentObject(gameLogic)
             
-        case .redLineIsHit:
-            GameOverView(currentGameState: $currentGameState, amountOfBananasPlanted: 0)
-                .environmentObject(gameLogic)
-            
         case .timeIsUp:
             TimesUpView(currentGameState: $currentGameState, amountOfBananasPlanted: 0)
                 .environmentObject(gameLogic)
@@ -48,10 +44,6 @@ struct ContentView: View {
                 .environmentObject(gameLogic)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
 
 #Preview {

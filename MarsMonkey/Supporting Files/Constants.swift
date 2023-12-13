@@ -12,7 +12,6 @@ enum GameState{
     case menu // MenuView
     case playing // GameView
     case timeIsUp // TimesUpView
-    case redLineIsHit // GameOverView
     case leaderboard // LeaderboardView
 }
 
