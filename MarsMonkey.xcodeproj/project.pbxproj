@@ -19,12 +19,11 @@
 		1A400F5D2B29056A00845F3E /* gcBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F5C2B29056A00845F3E /* gcBackground.swift */; };
 		1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F602B2905B900845F3E /* gcAsteroids.swift */; };
 		1A443F6A2B2672F000037CCA /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A443F692B2672F000037CCA /* Joystick.swift */; };
+		1A68A2942B29BCBE00D47EE4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */; };
 		1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8732B23605C00BCE4A6 /* UIElements.swift */; };
-		1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */; };
 		1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */; };
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
 		4E5209F92B27151800368A14 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5209F82B27151800368A14 /* DataItem.swift */; };
-		4E5209FB2B2716A200368A14 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */; };
 		CC17CAD22B290E450037BEB2 /* gcCraters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC17CAD12B290E450037BEB2 /* gcCraters.swift */; };
 		CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A732B24947F00392E0E /* MenuView.swift */; };
 		CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEEADC92B25F3C900AB2AA0 /* GameView.swift */; };
@@ -47,13 +46,12 @@
 		1A400F5C2B29056A00845F3E /* gcBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcBackground.swift; sourceTree = "<group>"; };
 		1A400F602B2905B900845F3E /* gcAsteroids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcAsteroids.swift; sourceTree = "<group>"; };
 		1A443F692B2672F000037CCA /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
+		1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		1ACCA8732B23605C00BCE4A6 /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
-		1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpView.swift; sourceTree = "<group>"; };
 		1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RedBurger.otf; sourceTree = "<group>"; };
 		1ACCA87F2B2365B100BCE4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4E5209F82B27151800368A14 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
-		4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
 		CC17CAD12B290E450037BEB2 /* gcCraters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcCraters.swift; sourceTree = "<group>"; };
 		CC7E7A732B24947F00392E0E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CCEEADC92B25F3C900AB2AA0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				4E5209F82B27151800368A14 /* DataItem.swift */,
-				4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */,
 				1A0396522B248E2E000DB43C /* Haptic Model.swift */,
 				0AAC29CF2B270BE00069EE9F /* Timer Model.swift */,
 			);
@@ -133,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				CC7E7A732B24947F00392E0E /* MenuView.swift */,
-				1ACCA8772B2360A400BCE4A6 /* LeaderboardView.swift */,
 			);
 			path = "Non-Game Views";
 			sourceTree = "<group>";
@@ -181,6 +177,7 @@
 				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 				CCEEADC92B25F3C900AB2AA0 /* GameView.swift */,
 				0AAC29D12B2710050069EE9F /* TimerView.swift */,
+				1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */,
 			);
 			path = "Game Views";
 			sourceTree = "<group>";
@@ -256,14 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A400F572B29040D00845F3E /* gcJoystick.swift in Sources */,
-				4E5209FB2B2716A200368A14 /* LeaderboardModel.swift in Sources */,
 				1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */,
 				1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */,
 				0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */,
 				1A388A402B2608DF000A2507 /* ContentView.swift in Sources */,
 				CC17CAD22B290E450037BEB2 /* gcCraters.swift in Sources */,
 				CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */,
-				1ACCA8782B2360A400BCE4A6 /* LeaderboardView.swift in Sources */,
 				1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */,
 				0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */,
 				CCEEADD22B25F46800AB2AA0 /* GameScene.swift in Sources */,
@@ -274,6 +269,7 @@
 				CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */,
 				1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */,
 				CCEEADD02B25F45200AB2AA0 /* GameLogic.swift in Sources */,
+				1A68A2942B29BCBE00D47EE4 /* LeaderboardView.swift in Sources */,
 				1A443F6A2B2672F000037CCA /* Joystick.swift in Sources */,
 				CCEEADCC2B25F3E800AB2AA0 /* Constants.swift in Sources */,
 				1A400F5D2B29056A00845F3E /* gcBackground.swift in Sources */,
