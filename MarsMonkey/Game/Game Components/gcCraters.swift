@@ -31,31 +31,27 @@ extension GameScene{
         newCrater.position = position
         
         newCrater.physicsBody = SKPhysicsBody(circleOfRadius: newCrater.size.width/2)
-        newCrater.physicsBody?.affectedByGravity = true
+        newCrater.physicsBody?.affectedByGravity = false
+        newCrater.physicsBody?.allowsRotation = false
+        newCrater.physicsBody?.pinned = true
         
         newCrater.physicsBody?.categoryBitMask = InstanceCategory.crater
         newCrater.physicsBody?.contactTestBitMask = InstanceCategory.player
-        newCrater.physicsBody?.collisionBitMask = InstanceCategory.player
         
         addChild(newCrater)
     }
-    
-    
 }
 
-//// Registering the Contact of an Asteroid with a Player
-//extension GameScene: SKPhysicsContactDelegate {
-//    func didBegin(_ contact: SKPhysicsContact) {
-//        let asteroidNode = contact.bodyA.node?.name == "asteroid" ? contact.bodyA.node : contact.bodyB.node
-//        
-//        // When Asteroid Contacts With a Player
-//        if let asteroid = asteroidNode {
-//            // Delete the Asteroid from the Scene
-//            asteroid.removeFromParent()
-//            // Add a Haptic Effect
-//            heavyHaptic()
-//            // Decrement timer
-//            timerModel.decrementTimer(by: gameConstants.decrementSecondsNumber)
-//        }
-//    }
-//}
+// Handling the Contact of the Crater with the Player
+extension GameScene{
+    func handleCraterContact(crater: SKNode) {
+        // When Asteroid Contacts With a Player
+        if crater.name == "crater" {
+            // Delete the Asteroid from the Scene
+            crater.removeFromParent()
+            // Add a Haptic Effect
+            heavyHaptic()
+            timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
+        }
+    }
+}
