@@ -14,6 +14,32 @@ struct TimesUpView: View {
     var amountOfBananasPlanted: Int
     
     var body: some View {
+        VStack{
+            HStack{
+                
+                Image(.crown).padding(.leading,5)
+                StrokeText(text: "Massimo", strokeWidth: 1)
+                    .font(Font.custom("RedBurger", size: 24))
+                    .foregroundColor(.white)
+                
+                
+                HStack{
+                    Spacer()
+                    Image(.palmTree)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 40)
+                    StrokeText(text: "60", strokeWidth: 1)
+                        .font(Font.custom("RedBurger", size: 24))
+                        .foregroundColor(.white)
+                }
+                
+            }.padding(.all, 10)
+        }
+        .background(.mmPink)
+        .cornerRadius(10)
+        .frame(maxWidth: 312)
+        
         VStack(spacing: 20){
             StrokeText(text: "Time’s up!", strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 48))
@@ -33,7 +59,7 @@ struct TimesUpView: View {
         .padding()
         .background(.mmPink)
         .cornerRadius(10)
-        .padding(.all, 40)
+        .padding([.leading, .trailing, .bottom], 40)
     }
 }
 

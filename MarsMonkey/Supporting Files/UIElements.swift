@@ -17,7 +17,7 @@ struct roundedButton: View {
         Button(action: {action(); lightHaptic()}){
             StrokeText(text: title, strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: fontSize))
-                .foregroundColor(.mmPink)
+                .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
                 .background(.mmPinkButton)
@@ -55,6 +55,8 @@ struct StrokeText: View {
     }
 }
 
+
+
 // This structure is used for displaying single user in leaderboard
 struct leaderboardParticipant: View {
     var playerName: String = "Player Name"
@@ -88,7 +90,7 @@ struct leaderboardParticipant: View {
                     StrokeText(text: playerScore.description, strokeWidth: 1)
                         .frame(alignment: .trailing)
                 }
-                .foregroundColor(.mmLightPinkTitle)
+                .foregroundColor(isHighlighted ? .mmPink : .white)
                 .font(Font.custom("RedBurger", size: 20))
             }
         }
@@ -108,18 +110,16 @@ struct GameScore: View {
             
             StrokeText(text: currentScore.description, strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 48))
-                .foregroundColor(.mmPink)
+                .foregroundColor(.white)
         }
     }
 }
 
 #Preview{
     VStack{
-        roundedButton(title: "Play", action: {})
-        
         leaderboardParticipant(isHighlighted: true)
         
-        
+        leaderboardParticipant(isHighlighted: false)
     }
     .padding(.horizontal)
     .frame(maxWidth: .infinity, maxHeight: .infinity)

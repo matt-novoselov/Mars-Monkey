@@ -24,7 +24,7 @@ struct MenuView: View {
             VStack{
                 StrokeText(text: "Mars Monkey", strokeWidth: 1)
                     .font(Font.custom("RedBurger", size: 55))
-                    .foregroundColor(.mmPink)
+                    .foregroundColor(.white)
                 
                 HStack {
                     TextField("Enter your name", text: $playerName)
