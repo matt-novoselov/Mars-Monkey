@@ -12,7 +12,6 @@
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
 		1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3596272B2347630012D276 /* MarsMonkeyApp.swift */; };
 		1A35962C2B2347640012D276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962B2B2347640012D276 /* Assets.xcassets */; };
-		1A35962F2B2347640012D276 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962E2B2347640012D276 /* Preview Assets.xcassets */; };
 		1A388A402B2608DF000A2507 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A388A3F2B2608DF000A2507 /* ContentView.swift */; };
 		1A400F572B29040D00845F3E /* gcJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F562B29040D00845F3E /* gcJoystick.swift */; };
 		1A400F592B2904E300845F3E /* gcCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F582B2904E300845F3E /* gcCamera.swift */; };
@@ -42,7 +41,6 @@
 		1A3596242B2347630012D276 /* MarsMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3596272B2347630012D276 /* MarsMonkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsMonkeyApp.swift; sourceTree = "<group>"; };
 		1A35962B2B2347640012D276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1A35962E2B2347640012D276 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A388A3F2B2608DF000A2507 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A400F562B29040D00845F3E /* gcJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcJoystick.swift; sourceTree = "<group>"; };
 		1A400F582B2904E300845F3E /* gcCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcCamera.swift; sourceTree = "<group>"; };
@@ -105,18 +103,8 @@
 				1ACCA8762B23607F00BCE4A6 /* Non-Game Views */,
 				1ACCA8752B23606100BCE4A6 /* Models */,
 				1ACCA87B2B23626700BCE4A6 /* Resources */,
-				1A35962D2B2347640012D276 /* Preview Content */,
-				4E5209F82B27151800368A14 /* DataItem.swift */,
 			);
 			path = MarsMonkey;
-			sourceTree = "<group>";
-		};
-		1A35962D2B2347640012D276 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1A35962E2B2347640012D276 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1A400F552B2903E600845F3E /* Game Components */ = {
@@ -135,6 +123,7 @@
 		1ACCA8752B23606100BCE4A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4E5209F82B27151800368A14 /* DataItem.swift */,
 				4E5209FA2B2716A200368A14 /* LeaderboardModel.swift */,
 				1A0396522B248E2E000DB43C /* Haptic Model.swift */,
 				0AAC29CF2B270BE00069EE9F /* Timer Model.swift */,
@@ -258,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */,
-				1A35962F2B2347640012D276 /* Preview Assets.xcassets in Resources */,
 				1A35962C2B2347640012D276 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MarsMonkey/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = GXDG2KXXXC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -455,7 +443,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MarsMonkey/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = GXDG2KXXXC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
