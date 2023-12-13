@@ -66,10 +66,11 @@ class GameScene: SKScene{
 extension GameScene{
     private func setUpGame() {
         self.gameLogic.setUpGame()
-        self.startAsteroidsCycle()
         self.physicsWorld.contactDelegate = self
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
+        self.startAsteroidsCycle()
         self.createCrater()
+        self.createPlantingArea()
     }
     
     private func setUpPhysicsWorld() {
@@ -78,7 +79,7 @@ extension GameScene{
     }
 }
 
-// Registering the Contact of the Player With Objects (Craters and Asteroids)
+// Registering the Contact of the Player With Objects (Craters, Asteroids, Planting Areas)
 extension GameScene: SKPhysicsContactDelegate{
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -101,6 +102,13 @@ extension GameScene: SKPhysicsContactDelegate{
             (bodyA.categoryBitMask == InstanceCategory.crater && bodyB.categoryBitMask == InstanceCategory.player) {
             // Handle crater contact
             handleCraterContact(crater: bodyA.categoryBitMask == InstanceCategory.crater ? nodeA : nodeB)
+        }
+        
+        // Check if one of the bodies is the player and the other is a planting area
+        if (bodyA.categoryBitMask == InstanceCategory.player && bodyB.categoryBitMask == InstanceCategory.bananaPlantArea) ||
+            (bodyA.categoryBitMask == InstanceCategory.bananaPlantArea && bodyB.categoryBitMask == InstanceCategory.player) {
+            // Handle crater contact
+            handlePlantingAreaContact(plantingArea: bodyA.categoryBitMask == InstanceCategory.bananaPlantArea ? nodeA : nodeB)
         }
     }
     

@@ -21,6 +21,7 @@
 		1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F602B2905B900845F3E /* gcAsteroids.swift */; };
 		1A443F6A2B2672F000037CCA /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A443F692B2672F000037CCA /* Joystick.swift */; };
 		1A68A2942B29BCBE00D47EE4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */; };
+		1AB18EE32B29CE4000936E86 /* gcPlantingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */; };
 		1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8732B23605C00BCE4A6 /* UIElements.swift */; };
 		1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */; };
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
@@ -49,6 +50,7 @@
 		1A400F602B2905B900845F3E /* gcAsteroids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcAsteroids.swift; sourceTree = "<group>"; };
 		1A443F692B2672F000037CCA /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcPlantingArea.swift; sourceTree = "<group>"; };
 		1ACCA8732B23605C00BCE4A6 /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
 		1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpView.swift; sourceTree = "<group>"; };
 		1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RedBurger.otf; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				1A400F5C2B29056A00845F3E /* gcBackground.swift */,
 				1A400F602B2905B900845F3E /* gcAsteroids.swift */,
 				CC17CAD12B290E450037BEB2 /* gcCraters.swift */,
+				1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */,
 			);
 			path = "Game Components";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				1A400F5B2B29053900845F3E /* gcPlayer.swift in Sources */,
 				4E5209F92B27151800368A14 /* DataItem.swift in Sources */,
 				1A400F592B2904E300845F3E /* gcCamera.swift in Sources */,
+				1AB18EE32B29CE4000936E86 /* gcPlantingArea.swift in Sources */,
 				CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */,
 				1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */,
 				CCEEADD02B25F45200AB2AA0 /* GameLogic.swift in Sources */,
