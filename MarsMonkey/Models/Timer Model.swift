@@ -40,17 +40,13 @@ class TimerModel: ObservableObject {
         timer?.invalidate()
         secondsLeft = 0
     }
-    
-    func decrementTimer(by amount: Int) {
-        if secondsLeft > GameConstants().decrementSecondsNumber{
-            secondsLeft -= amount
+
+    func modifyTimer(by amount: Int) {
+        if secondsLeft + amount > 0{
+            secondsLeft += amount
         }
         else{
             stopTimer()
         }
-    }
-    
-    func incrementTimer(by amount: Int) {
-        secondsLeft += amount
     }
 }

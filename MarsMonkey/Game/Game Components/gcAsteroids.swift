@@ -73,8 +73,7 @@ extension GameScene: SKPhysicsContactDelegate {
             asteroid.removeFromParent()
             // Add a Haptic Effect
             heavyHaptic()
-            // Decrement timer
-            timerModel.decrementTimer(by: gameConstants.decrementSecondsNumber)
+            timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
     }
 }
