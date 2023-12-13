@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A862D452B29B1E2000043D6 /* PlantingTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */; };
 		0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* Timer Model.swift */; };
 		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantingTreeView.swift; sourceTree = "<group>"; };
 		0AAC29CF2B270BE00069EE9F /* Timer Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer Model.swift"; sourceTree = "<group>"; };
 		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		CCEEADD42B26039B00AB2AA0 /* Game Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */,
 				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 				CCEEADC92B25F3C900AB2AA0 /* GameView.swift */,
 				0AAC29D12B2710050069EE9F /* TimerView.swift */,
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A862D452B29B1E2000043D6 /* PlantingTreeView.swift in Sources */,
 				1A400F572B29040D00845F3E /* gcJoystick.swift in Sources */,
 				4E5209FB2B2716A200368A14 /* LeaderboardModel.swift in Sources */,
 				1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */,
