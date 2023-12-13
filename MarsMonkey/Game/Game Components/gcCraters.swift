@@ -26,7 +26,7 @@ extension GameScene{
     private func newCrater(at position: CGPoint) {
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
-        newCrater.setScale(0.25)
+        newCrater.setScale(0.3)
         newCrater.zPosition = player.zPosition
         newCrater.position = position
         

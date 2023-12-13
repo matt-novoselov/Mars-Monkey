@@ -16,7 +16,7 @@ extension GameScene{
     private func newPlantingArea(at position: CGPoint) {
         let plantingArea = SKSpriteNode(imageNamed: "planting spot")
         plantingArea.name = "planting spot"
-        plantingArea.setScale(2)
+        plantingArea.setScale(0.35)
         plantingArea.zPosition = player.zPosition
         plantingArea.position = position
         
