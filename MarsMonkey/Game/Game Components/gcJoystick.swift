@@ -12,17 +12,15 @@ extension GameScene{
     func setUpJoystick() {
         🕹️.zPosition = 99
         🕹️.child.zPosition = 100
-        addChild(🕹️)
-        addChild(🕹️.child)
+        
+        🕹️.position = CGPoint(x: 0, y: -self.frame.height/3) // Set position of the joystick
+        🕹️.child.position = 🕹️.position 
+        
+        cam.addChild(🕹️)
+        cam.addChild(🕹️.child)
     }
     
     func joystickUpdate() {
-        🕹️.position = CGPoint(x: scene!.frame.width/2, y: cam.position.y - scene!.frame.height/3) // Set position of the joystick
-        
-        if !🕹️.isActive{
-            🕹️.child.position = CGPoint(x: 🕹️.position.x, y: 🕹️.position.y) // Set position of the joystick's child
-        }
-        
         if 🕹️.isActive { //Update players position based on the joystick's movement
             player.position = CGPoint(x: player.position.x - (joystickPosX * gameConstants.playerSpeed),
                                       y: player.position.y + (joystickPosY * gameConstants.playerSpeed))
@@ -38,7 +36,7 @@ extension GameScene{
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let location = touch.location(in: self)
+            let location = touch.location(in: cam)
             
             if 🕹️.isActive {
                 // All mathematical logic is performed in the "getDist" function

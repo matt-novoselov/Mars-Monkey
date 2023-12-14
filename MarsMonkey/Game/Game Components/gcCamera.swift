@@ -11,6 +11,7 @@ extension GameScene{
     func setUpCamera() {
         cam.position = player.position
         self.camera = cam
+        addChild(cam)
     }
     
     func cameraUpdate() {
