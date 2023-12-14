@@ -28,6 +28,18 @@ class GameScene: SKScene{
     var joystickPosX: CGFloat = 0 // var representing how far the joystick was dragged on X axis
     var joystickPosY: CGFloat = 0 // var representing how far the joystick was dragged on Y axis
     
+    // Create a shape node with the initial circle path
+    let circleNode = SKShapeNode()
+    
+    // The trim factor controls how much of the circle is filled (0 = not filled, 1 = fully filled)
+    var trimFactor: Double = 0 {
+        didSet {
+            // Ensure trimFactor stays within the valid range
+            trimFactor = max(0, min(1, trimFactor))
+            updateCirclePath()
+        }
+    }
+    
     
     // initialization function for GameScene
     init(timerModel: TimerModel) {
@@ -48,6 +60,7 @@ class GameScene: SKScene{
         self.setUpPlayer()
         self.setUpCamera()
         self.setUpBackground()
+        self.setUpProgressBar()
     }
     
     override func update(_ currentTime: CFTimeInterval) {
@@ -70,7 +83,7 @@ extension GameScene{
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
         self.startAsteroidsCycle()
         self.startCratersCycle()
-//        self.createPlantingArea()
+        self.createPlantingArea()
     }
     
     private func setUpPhysicsWorld() {

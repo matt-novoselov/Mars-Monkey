@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A862D452B29B1E2000043D6 /* PlantingTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */; };
 		0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* Timer Model.swift */; };
 		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
@@ -21,6 +20,7 @@
 		1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A400F602B2905B900845F3E /* gcAsteroids.swift */; };
 		1A443F6A2B2672F000037CCA /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A443F692B2672F000037CCA /* Joystick.swift */; };
 		1A68A2942B29BCBE00D47EE4 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */; };
+		1AAB718E2B2B3D1B00F5529E /* gcProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAB718D2B2B3D1B00F5529E /* gcProgressBar.swift */; };
 		1AB18EE32B29CE4000936E86 /* gcPlantingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */; };
 		1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8732B23605C00BCE4A6 /* UIElements.swift */; };
 		1ACCA87A2B2360C300BCE4A6 /* TimesUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */; };
@@ -35,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantingTreeView.swift; sourceTree = "<group>"; };
 		0AAC29CF2B270BE00069EE9F /* Timer Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer Model.swift"; sourceTree = "<group>"; };
 		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		1A400F602B2905B900845F3E /* gcAsteroids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcAsteroids.swift; sourceTree = "<group>"; };
 		1A443F692B2672F000037CCA /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		1AAB718D2B2B3D1B00F5529E /* gcProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcProgressBar.swift; sourceTree = "<group>"; };
 		1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcPlantingArea.swift; sourceTree = "<group>"; };
 		1ACCA8732B23605C00BCE4A6 /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
 		1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpView.swift; sourceTree = "<group>"; };
@@ -117,6 +117,7 @@
 				1A400F602B2905B900845F3E /* gcAsteroids.swift */,
 				CC17CAD12B290E450037BEB2 /* gcCraters.swift */,
 				1AB18EE22B29CE4000936E86 /* gcPlantingArea.swift */,
+				1AAB718D2B2B3D1B00F5529E /* gcProgressBar.swift */,
 			);
 			path = "Game Components";
 			sourceTree = "<group>";
@@ -180,7 +181,6 @@
 		CCEEADD42B26039B00AB2AA0 /* Game Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A862D442B29B1E2000043D6 /* PlantingTreeView.swift */,
 				CCEEADC92B25F3C900AB2AA0 /* GameView.swift */,
 				1ACCA8792B2360C300BCE4A6 /* TimesUpView.swift */,
 				0AAC29D12B2710050069EE9F /* TimerView.swift */,
@@ -258,8 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A862D452B29B1E2000043D6 /* PlantingTreeView.swift in Sources */,
 				1A400F572B29040D00845F3E /* gcJoystick.swift in Sources */,
+				1AAB718E2B2B3D1B00F5529E /* gcProgressBar.swift in Sources */,
 				1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */,
 				1ACCA8742B23605C00BCE4A6 /* UIElements.swift in Sources */,
 				0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */,

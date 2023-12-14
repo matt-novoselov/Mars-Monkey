@@ -16,7 +16,7 @@ extension GameScene{
     private func newPlantingArea(at position: CGPoint) {
         let plantingArea = SKSpriteNode(imageNamed: "planting spot")
         plantingArea.name = "planting spot"
-        plantingArea.setScale(0.35)
+        plantingArea.setScale(0.45)
         plantingArea.zPosition = player.zPosition
         plantingArea.position = position
         
@@ -40,18 +40,19 @@ extension GameScene{
         print("Contacted with planting area")
         
         if plantingArea.name == "planting spot" {
+            plantingArea.addChild(circleNode)
             
             let waitAction = SKAction.wait(forDuration: TimeInterval(GameConstants().bananaTreeSecondsToPlant))
             let addNodeAction = SKAction.run {
-                // Delete the Asteroid from the Scene
-                plantingArea.removeFromParent()
-                
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
                 
                 // Add a Haptic Effect
                 self.gameLogic.scoreIncreaseByOne(points: 1)
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
+                
+                // Delete the Asteroid from the Scene
+                plantingArea.removeFromParent()
             }
             
             let sequenceAction = SKAction.sequence([waitAction, addNodeAction])
