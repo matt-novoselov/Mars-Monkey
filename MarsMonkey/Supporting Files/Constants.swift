@@ -20,7 +20,7 @@ struct GameConstants{
     // - - - - SPEED - - - - //
     
     // Players speed in pixels
-    let playerSpeed: CGFloat = 1
+    let playerSpeed: CGFloat = 1.5
     
     // Players speed in pixels
     let cameraMovementSpeed: CGFloat = 4
@@ -40,6 +40,11 @@ struct GameConstants{
     
     // Amount of seconds added to the timer after planting a banana tree
     let bananaTreeRewardSeconds: Int = 10
+    
+    // - - - - COLLISION CHEAT - - - - //
+    
+    // Amount of seconds subtracted from the timer after touching a crater
+    let collisionCheat: Double = 0.8
     
     // - - - - OBJECTS GENERATION CONSTRAINTS - - - - //
     

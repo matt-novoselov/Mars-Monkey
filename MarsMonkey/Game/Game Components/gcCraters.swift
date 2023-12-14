@@ -15,6 +15,8 @@ extension GameScene{
         
         // Randomly decide how many craters to create in a row
         let numberOfCraters = Int.random(in: 1...GameConstants().maxNumberOfCratersInARow)
+        var amountOfTries: Int = 0
+        let maxAmountOfTries: Int = 10
         
         // Create a random number of craters
         
@@ -22,18 +24,19 @@ extension GameScene{
             var craterPosition: CGPoint
             repeat {
                 craterPosition = self.randomCraterPosition()
-            } while isOverlappingWithPreviousCraters(position: craterPosition)
+                amountOfTries+=1
+            } while isOverlappingWithPreviousCraters(position: craterPosition) && amountOfTries<maxAmountOfTries
             
-            previousCraterPositions.append(craterPosition)
-            newCrater(at: craterPosition)
+            if amountOfTries<maxAmountOfTries{
+                previousCraterPositions.append(craterPosition)
+                newCrater(at: craterPosition)
+            }
         }
         
     }
     
     private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
-//            print(self.player.size.width)
-        
-           let minimumDistance: CGFloat = (self.player.size.width + self.player.size.width)
+        let minimumDistance: CGFloat = (self.player.size.width + 340 + 50)
 
            for previousPosition in previousCraterPositions {
                let distanceX = abs(position.x - previousPosition.x)
@@ -49,11 +52,11 @@ extension GameScene{
        }
     
     private func randomCraterPosition() -> CGPoint {
-        let initialX: CGFloat = 200
-        let finalX: CGFloat = self.frame.width - 200
+        let initialX: CGFloat = 170
+        let finalX: CGFloat = self.frame.width - 170
         
         let positionX = CGFloat.random(in: initialX...finalX)
-        let positionY = cam.position.y + frame.height - 1100
+        let positionY = cam.position.y + frame.height/2 + 170
         
         return CGPoint(x: positionX, y: positionY)
     }

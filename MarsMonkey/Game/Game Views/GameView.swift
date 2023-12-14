@@ -24,7 +24,7 @@ struct GameView: View {
             
             SpriteView(
                 scene: scene
-                //,debugOptions: [.showsPhysics]
+                ,debugOptions: [.showsPhysics]
             )
             .ignoresSafeArea()
   
