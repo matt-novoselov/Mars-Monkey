@@ -36,7 +36,7 @@ struct ContentView: View {
                 .environmentObject(gameLogic)
             
         case .timeIsUp:
-            TimesUpView(currentGameState: $currentGameState, amountOfBananasPlanted: 0)
+            TimesUpView(currentGameState: $currentGameState, amountOfBananasPlanted: gameLogic.currentScore)
                 .environmentObject(gameLogic)
             
         case .leaderboard:
