@@ -23,12 +23,12 @@ struct GameConstants{
     let playerSpeed: CGFloat = 1.5
     
     // Players speed in pixels
-    let cameraMovementSpeed: CGFloat = 0
+    let cameraMovementSpeed: CGFloat = 4
     
     // - - - - TIMER - - - - //
     
     // Timer Constant
-    let timerDurationInSeconds: Int = 30 // 120
+    let timerDurationInSeconds: Int = 120
     
     // Amount of seconds to spend to plant a banana tree
     let bananaTreeSecondsToPlant: Int = 3

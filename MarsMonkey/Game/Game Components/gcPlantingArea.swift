@@ -1,5 +1,5 @@
 //
-//  gcCraters.swift
+//  gcPlantingArea.swift
 //  MarsMonkey
 //
 //  Created by Matt Novoselov on 13.12.2023.
@@ -8,32 +8,39 @@
 import SpriteKit
 
 extension GameScene{
-    func createPlantingArea() {
-        let plantingAreaPosition = CGPoint(x: self.scene!.frame.width/2, y: self.scene!.frame.height/2 + 400)
-        newPlantingArea(at: plantingAreaPosition)
+    private func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
+        plantingArea.setScale(0.45)
+        let newPlantingArea = SKSpriteNode(imageNamed: "planting spot")
+        
+        newPlantingArea.scale(to: plantingArea.size)
+        newPlantingArea.name = "planting spot"
+        newPlantingArea.zPosition = player.zPosition - 1
+        newPlantingArea.position = position
+        newPlantingArea.physicsBody = SKPhysicsBody(circleOfRadius: plantingArea.size.width/2)
+        newPlantingArea.physicsBody?.affectedByGravity = false
+        newPlantingArea.physicsBody?.allowsRotation = false
+        newPlantingArea.physicsBody?.pinned = true
+        
+        newPlantingArea.physicsBody?.categoryBitMask = InstanceCategory.bananaPlantArea
+        newPlantingArea.physicsBody?.contactTestBitMask = InstanceCategory.player
+        
+        return newPlantingArea
     }
     
-    private func newPlantingArea(at position: CGPoint) {
-        let plantingArea = SKSpriteNode(imageNamed: "planting spot")
-        plantingArea.name = "planting spot"
-        plantingArea.setScale(0.45)
-        plantingArea.zPosition = player.zPosition
-        plantingArea.position = position
+    func createPlantingArea() {
+        let newPlantingArea: SKSpriteNode = newPlantingArea(at: randomPlantingAreaPosition())
         
-        plantingArea.physicsBody = SKPhysicsBody(circleOfRadius: plantingArea.size.width/2)
-        plantingArea.physicsBody?.affectedByGravity = false
-        plantingArea.physicsBody?.allowsRotation = false
-        plantingArea.physicsBody?.pinned = true
-        
-        plantingArea.physicsBody?.categoryBitMask = InstanceCategory.bananaPlantArea
-        plantingArea.physicsBody?.contactTestBitMask = InstanceCategory.player
-        
-        addChild(plantingArea)
+        if !isOverlappingWithPreviousCraters(position: newPlantingArea.position){
+            // Generate a random number between 0 and 1
+            let randomValue = CGFloat.random(in: 0.0...1.0)
+            
+            // Check if the random value is less than 0.5 (50% chance)
+            if randomValue < 0.5 {
+                addChild(newPlantingArea)
+            }
+        }
     }
-}
-
-// Handling the Contact of the Planting Area with the Player
-extension GameScene{
+    
     func handlePlantingAreaContact(plantingArea: SKNode) {
         // When Planting Area Contacts With a Player
 
@@ -68,7 +75,6 @@ extension GameScene{
         }
     }
     
-    
     // Function to handle contact end
     func handleContactEnd(plantingArea: SKNode) {
         // Your code to handle the end of contact with a planting area
@@ -87,5 +93,43 @@ extension GameScene{
         palmTree.zPosition = player.zPosition - 1
         palmTree.position = CGPoint(x: plantingAreaPosition.x, y: plantingAreaPosition.y+palmTree.size.width/2)
         addChild(palmTree)
+    }
+    
+    private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
+        let minimumDistance: CGFloat = (crater.size.width/2 + plantingArea.size.width/2 + 25)
+
+           for previousPosition in previousCraterPositions {
+               let distanceX = abs(position.x - previousPosition.x)
+               let distanceY = abs(position.y - previousPosition.y)
+
+               // Check for overlap in both x and y axes
+               if distanceX < minimumDistance && distanceY < minimumDistance {
+                   return true // Overlapping with a previous crater
+               }
+           }
+
+           return false
+       }
+    
+    func startPlantingAreaCycle() {
+        let createPlantingAreaAction = SKAction.run { [weak self] in
+            self!.createPlantingArea()
+        }
+        
+        let waitAction = SKAction.wait(forDuration: gameConstants.cratersGenerationIntervalInSeconds/2)
+        let createAndWaitAction = SKAction.sequence([createPlantingAreaAction, waitAction])
+        
+        let plantingAreaAction = SKAction.repeatForever(createAndWaitAction)
+        run(plantingAreaAction)
+    }
+    
+    private func randomPlantingAreaPosition() -> CGPoint {
+        let initialX: CGFloat = plantingArea.size.width/2 + 50
+        let finalX: CGFloat = self.frame.width - plantingArea.size.width/2 - 50
+        
+        let positionX = CGFloat.random(in: initialX...finalX)
+        let positionY = cam.position.y + frame.height/2 + plantingArea.size.width/2
+        
+        return CGPoint(x: positionX, y: positionY)
     }
 }

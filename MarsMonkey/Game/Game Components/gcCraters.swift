@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-private var previousCraterPositions: [CGPoint] = []
+public var previousCraterPositions: [CGPoint] = []
 
 extension GameScene{
 
@@ -56,7 +56,7 @@ extension GameScene{
         let finalX: CGFloat = self.frame.width - crater.size.width/2
         
         let positionX = CGFloat.random(in: initialX...finalX)
-        let positionY = cam.position.y + frame.height/2 + 170
+        let positionY = cam.position.y + frame.height/2 + crater.size.width/2
         
         return CGPoint(x: positionX, y: positionY)
     }
@@ -65,8 +65,8 @@ extension GameScene{
         crater.setScale(0.6)
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
-        newCrater.setScale(crater.xScale)
-        newCrater.zPosition = player.zPosition
+        newCrater.scale(to: crater.size)
+        newCrater.zPosition = player.zPosition - 2
         newCrater.position = position
         
         newCrater.physicsBody = SKPhysicsBody(circleOfRadius: newCrater.size.width/2)
