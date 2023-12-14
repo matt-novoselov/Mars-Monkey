@@ -45,6 +45,13 @@ extension GameScene{
         // When Planting Area Contacts With a Player
 
         if plantingArea.name == "planting spot" {
+            if let spriteNode = plantingArea as? SKSpriteNode {
+                let newTexture = SKTexture(imageNamed: "planting spot pressed")
+                spriteNode.texture = newTexture
+            }
+            
+            lightHaptic()
+            
             shouldRunAction = true
             trimFactor = 0
             plantingArea.addChild(circleNode)
@@ -63,7 +70,7 @@ extension GameScene{
                 // Add a Haptic Effect
                 self.gameLogic.scoreIncreaseByOne(points: 1)
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
-                lightHaptic()
+                softHaptic()
 
                 // Delete the Asteroid from the Scene
                 plantingArea.removeFromParent()
@@ -82,7 +89,11 @@ extension GameScene{
         // Your code to handle the end of contact with a planting area
         
         if plantingArea.name == "planting spot" {
-            // Add any specific actions you want to perform when the contact ends
+            if let spriteNode = plantingArea as? SKSpriteNode {
+                let newTexture = SKTexture(imageNamed: "planting spot")
+                spriteNode.texture = newTexture
+            }
+            
             shouldRunAction = false
             plantingArea.removeAllChildren()
         }
