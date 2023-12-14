@@ -25,6 +25,8 @@ class GameScene: SKScene{
     let cam = SKCameraNode()
     
     let crater = SKSpriteNode(imageNamed: "crater")
+    
+    var shouldRunAction = true
 
     var 🕹️: Joystick = Joystick(radius: 150) // Creating a joystick
     var joystickPosX: CGFloat = 0 // var representing how far the joystick was dragged on X axis
@@ -66,6 +68,8 @@ class GameScene: SKScene{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
+        print(trimFactor)
+        
         self.joystickUpdate()
         self.playerUpdate()
         self.cameraUpdate()
@@ -127,4 +131,20 @@ extension GameScene: SKPhysicsContactDelegate{
         }
     }
     
+    func didEnd(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA
+        let bodyB = contact.bodyB
+        
+        // Check if either body is nil
+        guard let nodeA = bodyA.node, let nodeB = bodyB.node else {
+            return
+        }
+        
+        // Check if one of the bodies is the player and the other is a planting area
+        if (bodyA.categoryBitMask == InstanceCategory.player && bodyB.categoryBitMask == InstanceCategory.bananaPlantArea) ||
+            (bodyA.categoryBitMask == InstanceCategory.bananaPlantArea && bodyB.categoryBitMask == InstanceCategory.player) {
+            // Handle contact end
+            handleContactEnd(plantingArea: bodyA.categoryBitMask == InstanceCategory.bananaPlantArea ? nodeA : nodeB)
+        }
+    }
 }

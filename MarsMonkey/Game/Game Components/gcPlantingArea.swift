@@ -36,27 +36,48 @@ extension GameScene{
 extension GameScene{
     func handlePlantingAreaContact(plantingArea: SKNode) {
         // When Planting Area Contacts With a Player
-        
-        print("Contacted with planting area")
-        
+
         if plantingArea.name == "planting spot" {
+            shouldRunAction = true
             plantingArea.addChild(circleNode)
             
-            let waitAction = SKAction.wait(forDuration: TimeInterval(GameConstants().bananaTreeSecondsToPlant))
-            let addNodeAction = SKAction.run {
+            // Run the animation
+            animateTrimFactor()
+
+            let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant))
+            let addNodeAction = SKAction.run { [weak self] in
+                // Check if shouldRunAction is true before executing the block
+                guard let self = self, self.shouldRunAction else { return }
+
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
-                
+
                 // Add a Haptic Effect
                 self.gameLogic.scoreIncreaseByOne(points: 1)
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
-                
+
                 // Delete the Asteroid from the Scene
                 plantingArea.removeFromParent()
             }
-            
+
             let sequenceAction = SKAction.sequence([waitAction, addNodeAction])
-            run(sequenceAction)
+            
+            if self.shouldRunAction{
+                run(sequenceAction)
+            }
+        }
+    }
+    
+    
+    // Function to handle contact end
+    func handleContactEnd(plantingArea: SKNode) {
+        // Your code to handle the end of contact with a planting area
+        
+        if plantingArea.name == "planting spot" {
+            // Add any specific actions you want to perform when the contact ends
+            shouldRunAction = false
+            plantingArea.removeAllChildren()
+            trimFactor = 0
         }
     }
     

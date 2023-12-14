@@ -45,8 +45,5 @@ extension GameScene{
 
         // Update the circle path based on the initial trim factor
         updateCirclePath()
-        
-        // Run the animation
-        animateTrimFactor()
     }
 }
