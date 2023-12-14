@@ -7,12 +7,15 @@
 
 import SpriteKit
 import SwiftUI
+import AVFoundation
 
 
 // Class GameScene Keeps Track of the Game Variables
 class GameScene: SKScene{
     var gameLogic: GameLogic = GameLogic.shared // Link to the GameLogic file, where all calculations should be performed
     let gameConstants: GameConstants = GameConstants() // Initialize game constants file
+    // Variable for AVAudioPlayer
+        var backgroundMusicPlayer: AVAudioPlayer!
         
     var timerModel: TimerModel
     
@@ -51,11 +54,32 @@ class GameScene: SKScene{
     init(timerModel: TimerModel) {
         self.timerModel = timerModel
         super.init(size: CGSize(width: 1179, height: 2556))
+        
+        // Starts music
+        playBackgroundMusic()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // Set up for the background music
+
+    func playBackgroundMusic() {
+           let musicPath = Bundle.main.url(forResource: "nomemusica", withExtension: "mp3")
+
+           do {
+               try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
+               try AVAudioSession.sharedInstance().setActive(true)
+
+               backgroundMusicPlayer = try AVAudioPlayer(contentsOf: musicPath!)
+               backgroundMusicPlayer.numberOfLoops = -1
+               backgroundMusicPlayer.prepareToPlay()
+               backgroundMusicPlayer.play()
+           } catch {
+               print("Errore durante la riproduzione della musica di sottofondo.")
+           }
+       }
 
     
     // Set up game first time

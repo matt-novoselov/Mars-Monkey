@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A689CE62B2BB1FE00C8385B /* Background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */; };
 		0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* Timer Model.swift */; };
 		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Background_music.mp3; sourceTree = "<group>"; };
 		0AAC29CF2B270BE00069EE9F /* Timer Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer Model.swift"; sourceTree = "<group>"; };
 		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A689CE42B2BB16500C8385B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		1A35961B2B2347630012D276 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		1ACCA87B2B23626700BCE4A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A689CE42B2BB16500C8385B /* Audio */,
 				1ACCA87C2B2362A600BCE4A6 /* Fonts */,
 			);
 			path = Resources;
@@ -248,6 +259,7 @@
 			files = (
 				1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */,
 				1A35962C2B2347640012D276 /* Assets.xcassets in Resources */,
+				0A689CE62B2BB1FE00C8385B /* Background_music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = GXDG2KXXXC;
+				DEVELOPMENT_TEAM = 2637N3HLSW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MarsMonkey/Info.plist;
@@ -444,7 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = GXDG2KXXXC;
+				DEVELOPMENT_TEAM = 2637N3HLSW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MarsMonkey/Info.plist;
