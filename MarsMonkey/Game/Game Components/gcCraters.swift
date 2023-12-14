@@ -63,9 +63,12 @@ extension GameScene{
 
     private func newCrater(at position: CGPoint) {
         crater.setScale(0.6)
+        let isFlipped = Bool.random() ? 1 : -1
+        
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
         newCrater.scale(to: crater.size)
+        newCrater.xScale = CGFloat(isFlipped) * crater.xScale
         newCrater.zPosition = player.zPosition - 2
         newCrater.position = position
         
