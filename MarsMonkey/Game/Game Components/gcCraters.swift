@@ -36,7 +36,7 @@ extension GameScene{
     }
     
     private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
-        let minimumDistance: CGFloat = (self.player.size.width + 340 + 50)
+        let minimumDistance: CGFloat = (self.player.size.width + crater.size.width + 50)
 
            for previousPosition in previousCraterPositions {
                let distanceX = abs(position.x - previousPosition.x)
@@ -52,19 +52,20 @@ extension GameScene{
        }
     
     private func randomCraterPosition() -> CGPoint {
-        let initialX: CGFloat = 170
-        let finalX: CGFloat = self.frame.width - 170
+        let initialX: CGFloat = crater.size.width/2
+        let finalX: CGFloat = self.frame.width - crater.size.width/2
         
         let positionX = CGFloat.random(in: initialX...finalX)
         let positionY = cam.position.y + frame.height/2 + 170
         
         return CGPoint(x: positionX, y: positionY)
     }
-    
+
     private func newCrater(at position: CGPoint) {
+        crater.setScale(0.6)
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
-        newCrater.setScale(0.6)
+        newCrater.setScale(crater.xScale)
         newCrater.zPosition = player.zPosition
         newCrater.position = position
         
@@ -78,7 +79,7 @@ extension GameScene{
         
         addChild(newCrater)
     }
-    
+
     func startCratersCycle() {
         let createCratersAction = SKAction.run { [weak self] in
             self?.createCraters()

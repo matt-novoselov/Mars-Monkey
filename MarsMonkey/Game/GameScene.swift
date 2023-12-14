@@ -23,6 +23,8 @@ class GameScene: SKScene{
     var amountOfCycles: Int = 0
     
     let cam = SKCameraNode()
+    
+    let crater = SKSpriteNode(imageNamed: "crater")
 
     var 🕹️: Joystick = Joystick(radius: 150) // Creating a joystick
     var joystickPosX: CGFloat = 0 // var representing how far the joystick was dragged on X axis
