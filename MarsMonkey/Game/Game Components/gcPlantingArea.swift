@@ -37,12 +37,33 @@ extension GameScene{
     func handlePlantingAreaContact(plantingArea: SKNode) {
         // When Planting Area Contacts With a Player
         
+        print("Contacted with planting area")
+        
         if plantingArea.name == "planting spot" {
-            // Delete the Asteroid from the Scene
-            plantingArea.removeFromParent()
-            // Add a Haptic Effect
-            gameLogic.scoreIncreaseByOne(points: 1)
-            timerModel.modifyTimer(by: gameConstants.bananaTreeRewardSeconds)
+            
+            let waitAction = SKAction.wait(forDuration: TimeInterval(GameConstants().bananaTreeSecondsToPlant))
+            let addNodeAction = SKAction.run {
+                // Delete the Asteroid from the Scene
+                plantingArea.removeFromParent()
+                
+                // Spawn a banana Tree
+                self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
+                
+                // Add a Haptic Effect
+                self.gameLogic.scoreIncreaseByOne(points: 1)
+                self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
+            }
+            
+            let sequenceAction = SKAction.sequence([waitAction, addNodeAction])
+            run(sequenceAction)
         }
+    }
+    
+    func spawnBananaTree(plantingAreaPosition: CGPoint){
+        let palmTree = SKSpriteNode(imageNamed: "Palm Tree")
+        palmTree.setScale(0.8)
+        palmTree.zPosition = player.zPosition - 1
+        palmTree.position = CGPoint(x: plantingAreaPosition.x, y: plantingAreaPosition.y+palmTree.size.width/2)
+        addChild(palmTree)
     }
 }
