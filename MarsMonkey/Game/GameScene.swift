@@ -70,7 +70,6 @@ extension GameScene{
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
         self.startAsteroidsCycle()
         self.startCratersCycle()
-        self.createCraters()
         self.createPlantingArea()
     }
     

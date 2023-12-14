@@ -44,6 +44,8 @@ struct GameConstants{
     // - - - - OBJECTS GENERATION CONSTRAINTS - - - - //
     
     let maxNumberOfCratersInARow = 2
+    
+    let cratersGenerationIntervalInSeconds: Double = 3.0
 }
 
 // - - - - INSTANCE CATEGORY - - - - //

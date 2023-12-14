@@ -7,26 +7,53 @@
 
 import SpriteKit
 
+private var previousCraterPositions: [CGPoint] = []
+
 extension GameScene{
+
     func createCraters() {
         
         // Randomly decide how many craters to create in a row
         let numberOfCraters = Int.random(in: 1...GameConstants().maxNumberOfCratersInARow)
         
-        // Cre
-        for _ in 0..<numberOfCraters{
-            let craterPosition = self.randomCraterPosition()
+        // Create a random number of craters
+        
+        for _ in 0..<numberOfCraters {
+            var craterPosition: CGPoint
+            repeat {
+                craterPosition = self.randomCraterPosition()
+            } while isOverlappingWithPreviousCraters(position: craterPosition)
+            
+            previousCraterPositions.append(craterPosition)
             newCrater(at: craterPosition)
         }
         
     }
     
+    private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
+//            print(self.player.size.width)
+        
+           let minimumDistance: CGFloat = (self.player.size.width + self.player.size.width)
+
+           for previousPosition in previousCraterPositions {
+               let distanceX = abs(position.x - previousPosition.x)
+               let distanceY = abs(position.y - previousPosition.y)
+
+               // Check for overlap in both x and y axes
+               if distanceX < minimumDistance && distanceY < minimumDistance {
+                   return true // Overlapping with a previous crater
+               }
+           }
+
+           return false
+       }
+    
     private func randomCraterPosition() -> CGPoint {
-        let initialX: CGFloat = 100
-        let finalX: CGFloat = self.frame.width - 100
+        let initialX: CGFloat = 200
+        let finalX: CGFloat = self.frame.width - 200
         
         let positionX = CGFloat.random(in: initialX...finalX)
-        let positionY = cam.position.y + frame.height
+        let positionY = cam.position.y + frame.height - 1100
         
         return CGPoint(x: positionX, y: positionY)
     }
@@ -54,7 +81,7 @@ extension GameScene{
             self?.createCraters()
         }
         
-        let waitAction = SKAction.wait(forDuration: 3.0)
+        let waitAction = SKAction.wait(forDuration: GameConstants().cratersGenerationIntervalInSeconds)
         let createAndWaitAction = SKAction.sequence([createCratersAction, waitAction])
         
         
@@ -67,12 +94,17 @@ extension GameScene{
 // Handling the Contact of the Crater with the Player
 extension GameScene{
     func handleCraterContact(crater: SKNode) {
+        
         // When Asteroid Contacts With a Player
         if crater.name == "crater" {
+            
             // Delete the Asteroid from the Scene
             crater.removeFromParent()
+            
             // Add a Haptic Effect
             heavyHaptic()
+            
+            // Decrement timer
             timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
     }
