@@ -11,7 +11,7 @@ extension GameScene{
     func setUpPlayer() {
         player.position = CGPoint(x: size.width/2, y: size.height/2)
         player.zPosition = 10
-        player.setScale(0.05)
+        player.setScale(0.08)
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width, height: player.size.height))
         player.physicsBody?.affectedByGravity = false
         // Setting CollisionBitMask, CategoryBitMask and ContactBitMask for a Player

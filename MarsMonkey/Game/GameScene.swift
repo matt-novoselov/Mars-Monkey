@@ -69,7 +69,8 @@ extension GameScene{
         self.physicsWorld.contactDelegate = self
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
         self.startAsteroidsCycle()
-        self.createCrater()
+        self.startCratersCycle()
+        self.createCraters()
         self.createPlantingArea()
     }
     

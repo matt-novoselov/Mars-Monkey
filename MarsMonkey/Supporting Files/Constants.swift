@@ -23,7 +23,7 @@ struct GameConstants{
     let playerSpeed: CGFloat = 1
     
     // Players speed in pixels
-    let cameraMovementSpeed: CGFloat = 1
+    let cameraMovementSpeed: CGFloat = 4
     
     // - - - - TIMER - - - - //
     
@@ -40,6 +40,10 @@ struct GameConstants{
     
     // Amount of seconds added to the timer after planting a banana tree
     let bananaTreeRewardSeconds: Int = 10
+    
+    // - - - - OBJECTS GENERATION CONSTRAINTS - - - - //
+    
+    let maxNumberOfCratersInARow = 2
 }
 
 // - - - - INSTANCE CATEGORY - - - - //

@@ -8,9 +8,17 @@
 import SpriteKit
 
 extension GameScene{
-    func createCrater() {
-        let craterPosition = self.randomCraterPosition()
-        newCrater(at: craterPosition)
+    func createCraters() {
+        
+        // Randomly decide how many craters to create in a row
+        let numberOfCraters = Int.random(in: 1...GameConstants().maxNumberOfCratersInARow)
+        
+        // Cre
+        for _ in 0..<numberOfCraters{
+            let craterPosition = self.randomCraterPosition()
+            newCrater(at: craterPosition)
+        }
+        
     }
     
     private func randomCraterPosition() -> CGPoint {
@@ -26,7 +34,7 @@ extension GameScene{
     private func newCrater(at position: CGPoint) {
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
-        newCrater.setScale(0.3)
+        newCrater.setScale(0.6)
         newCrater.zPosition = player.zPosition
         newCrater.position = position
         
@@ -39,6 +47,20 @@ extension GameScene{
         newCrater.physicsBody?.contactTestBitMask = InstanceCategory.player
         
         addChild(newCrater)
+    }
+    
+    func startCratersCycle() {
+        let createCratersAction = SKAction.run { [weak self] in
+            self?.createCraters()
+        }
+        
+        let waitAction = SKAction.wait(forDuration: 3.0)
+        let createAndWaitAction = SKAction.sequence([createCratersAction, waitAction])
+        
+        
+        let craterCycleAction = SKAction.repeatForever(createAndWaitAction)
+        
+        run(craterCycleAction)
     }
 }
 
