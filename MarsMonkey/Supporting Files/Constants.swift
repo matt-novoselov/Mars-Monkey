@@ -23,7 +23,7 @@ struct GameConstants{
     let playerSpeed: CGFloat = 1.5
     
     // Players speed in pixels
-    let cameraMovementSpeed: CGFloat = 4
+    let cameraMovementSpeed: CGFloat = 3
     
     // - - - - TIMER - - - - //
     
@@ -50,7 +50,7 @@ struct GameConstants{
     
     let maxNumberOfCratersInARow = 2
     
-    let cratersGenerationIntervalInSeconds: Double = 3.0
+    let cratersGenerationIntervalInSeconds: Double = 4
 }
 
 // - - - - INSTANCE CATEGORY - - - - //

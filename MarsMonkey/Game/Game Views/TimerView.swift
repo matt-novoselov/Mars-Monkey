@@ -14,7 +14,7 @@ struct TimerView: View {
         VStack {
             StrokeText(text: "\(timerModel.formattedTime)", strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 48))
-                .foregroundColor(.white)
+                .foregroundColor(timerModel.secondsLeft > 20 ? .white : .red)
         }
     }
 }
@@ -22,6 +22,3 @@ struct TimerView: View {
 #Preview {    
     TimerView()
 }
-
-
-

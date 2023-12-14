@@ -46,6 +46,7 @@ extension GameScene{
 
         if plantingArea.name == "planting spot" {
             shouldRunAction = true
+            trimFactor = 0
             plantingArea.addChild(circleNode)
             
             // Run the animation
@@ -62,6 +63,7 @@ extension GameScene{
                 // Add a Haptic Effect
                 self.gameLogic.scoreIncreaseByOne(points: 1)
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
+                lightHaptic()
 
                 // Delete the Asteroid from the Scene
                 plantingArea.removeFromParent()
@@ -83,7 +85,6 @@ extension GameScene{
             // Add any specific actions you want to perform when the contact ends
             shouldRunAction = false
             plantingArea.removeAllChildren()
-            trimFactor = 0
         }
     }
     
