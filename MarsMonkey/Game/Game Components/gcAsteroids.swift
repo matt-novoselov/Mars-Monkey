@@ -32,7 +32,7 @@ extension GameScene{
         let newAsteroid = SKSpriteNode(imageNamed: "asteroid")
         newAsteroid.name = "asteroid"
         newAsteroid.setScale(0.25)
-        newAsteroid.zPosition = player.zPosition
+        newAsteroid.zPosition = 🕹️.zPosition-1
         newAsteroid.position = position
         
         newAsteroid.physicsBody = SKPhysicsBody(circleOfRadius: newAsteroid.size.width/2)
