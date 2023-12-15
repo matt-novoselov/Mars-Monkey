@@ -135,6 +135,8 @@ extension GameScene{
     }
     
     func startPlantingAreaCycle() {
+        previousPlantingAreaPositions = []
+        
         let createPlantingAreaAction = SKAction.run { [weak self] in
             self!.createPlantingArea()
         }

@@ -85,6 +85,8 @@ extension GameScene{
     }
 
     func startCratersCycle() {
+        previousCraterPositions = []
+        
         let createCratersAction = SKAction.run { [weak self] in
             self?.createCraters()
         }
