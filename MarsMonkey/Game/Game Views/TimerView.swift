@@ -21,7 +21,7 @@ struct TimerView: View {
         .onChange(of: timerModel.secondsLeft){
             if timerModel.secondsLeft == 0{
                 let newGameState: GameState = gameLogic.finishTheGameWhenTimeIsUp()
-                currentGameState = newGameState
+                withAnimation { currentGameState = newGameState }
             }
         }
     }
