@@ -7,8 +7,10 @@
 
 import SpriteKit
 
+public var previousPlantingAreaPositions: [CGPoint] = []
+
 extension GameScene{
-    private func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
+    public func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
         plantingArea.setScale(0.45)
         let newPlantingArea = SKSpriteNode(imageNamed: "planting spot")
         
@@ -29,21 +31,16 @@ extension GameScene{
     
     func createPlantingArea() {
         let newPlantingArea: SKSpriteNode = newPlantingArea(at: randomPlantingAreaPosition())
-        
-        if !isOverlappingWithPreviousCraters(position: newPlantingArea.position){
-            // Generate a random number between 0 and 1
-            let randomValue = CGFloat.random(in: 0.0...1.0)
-            
-            // Check if the random value is less than 0.7 (70% chance)
-            if randomValue < 0.6 {
-                addChild(newPlantingArea)
-            }
+
+        if !isOverlappingWithPreviousCraters(position: newPlantingArea.position) && !isAreaFarAway(position: newPlantingArea.position){
+            previousPlantingAreaPositions.append(newPlantingArea.position)
+            addChild(newPlantingArea)
         }
     }
     
     func handlePlantingAreaContact(plantingArea: SKNode) {
         // When Planting Area Contacts With a Player
-
+        
         if plantingArea.name == "planting spot" {
             if let spriteNode = plantingArea as? SKSpriteNode {
                 let newTexture = SKTexture(imageNamed: "planting spot pressed")
@@ -58,24 +55,24 @@ extension GameScene{
             
             // Run the animation
             animateTrimFactor()
-
+            
             let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction else { return }
-
+                guard let self = self, self.shouldRunAction && trimFactor == 1 else { return }
+                
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
-
+                
                 // Add a Haptic Effect
                 self.gameLogic.scoreIncreaseByOne(points: 1)
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
                 softHaptic()
-
+                
                 // Delete the Asteroid from the Scene
                 plantingArea.removeFromParent()
             }
-
+            
             let sequenceAction = SKAction.sequence([waitAction, addNodeAction])
             
             if self.shouldRunAction{
@@ -109,19 +106,33 @@ extension GameScene{
     
     private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
         let minimumDistance: CGFloat = (crater.size.width/2 + plantingArea.size.width/2 + 25)
-
-           for previousPosition in previousCraterPositions {
-               let distanceX = abs(position.x - previousPosition.x)
-               let distanceY = abs(position.y - previousPosition.y)
-
-               // Check for overlap in both x and y axes
-               if distanceX < minimumDistance && distanceY < minimumDistance {
-                   return true // Overlapping with a previous crater
-               }
-           }
-
-           return false
-       }
+        
+        for previousPosition in previousCraterPositions {
+            let distanceX = abs(position.x - previousPosition.x)
+            let distanceY = abs(position.y - previousPosition.y)
+            
+            // Check for overlap in both x and y axes
+            if distanceX < minimumDistance && distanceY < minimumDistance {
+                return true // Overlapping with a previous crater
+            }
+        }
+        
+        return false
+    }
+    
+    private func isAreaFarAway(position: CGPoint) -> Bool {
+        let minimumDistance: CGFloat = gameConstants.minDistanceBetweenPlantingAreas // min distance between 2 planting areas
+        
+        for previousPosition in previousPlantingAreaPositions {
+            let distanceY = abs(position.y - previousPosition.y)
+            
+            // Check for overlap in y axes
+            if distanceY < minimumDistance {
+                return true // Overlapping with a previous planting area
+            }
+        }
+        return false
+    }
     
     func startPlantingAreaCycle() {
         let createPlantingAreaAction = SKAction.run { [weak self] in

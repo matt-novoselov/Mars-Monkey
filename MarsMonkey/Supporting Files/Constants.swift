@@ -51,6 +51,8 @@ struct GameConstants{
     let maxNumberOfCratersInARow = 2
     
     let cratersGenerationIntervalInSeconds: Double = 4
+    
+    let minDistanceBetweenPlantingAreas: CGFloat = 2000
 }
 
 // - - - - INSTANCE CATEGORY - - - - //
