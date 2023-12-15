@@ -51,6 +51,8 @@ extension GameScene{
             
             shouldRunAction = true
             trimFactor = 0
+            let circleNode = circleNode
+            circleNode.position = CGPoint(x: self.position.x, y: self.position.y - 20)
             plantingArea.addChild(circleNode)
             
             // Run the animation
