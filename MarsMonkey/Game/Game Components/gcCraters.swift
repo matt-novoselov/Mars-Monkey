@@ -15,7 +15,7 @@ extension GameScene{
         
         // Randomly decide how many craters to create in a row
         let randomNumber = Int.random(in: 1...100)
-        let numberOfCraters = randomNumber <= 45 ? gameConstants.maxNumberOfCratersInARow : 1
+        let numberOfCraters = randomNumber <= gameConstants.cratersGenerationChance ? gameConstants.maxNumberOfCratersInARow : 1
         
         var amountOfTries: Int = 0
         let maxAmountOfTries: Int = 10
@@ -59,7 +59,9 @@ extension GameScene{
         let positionX = CGFloat.random(in: initialX...finalX)
         let positionY = cam.position.y + frame.height/2 + crater.size.width/2
         
-        return CGPoint(x: positionX, y: positionY)
+        let randomYshift = CGFloat.random(min: -75, max: 75)
+        
+        return CGPoint(x: positionX, y: positionY + randomYshift + 75)
     }
 
     func newCrater(at position: CGPoint) {
@@ -116,5 +118,11 @@ extension GameScene{
             // Decrement timer
             timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
+    }
+}
+
+extension CGFloat {
+    static func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return CGFloat(arc4random_uniform(UInt32(max - min + 1))) + min
     }
 }

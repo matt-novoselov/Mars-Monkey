@@ -52,6 +52,8 @@ struct GameConstants{
     
     let cratersGenerationIntervalInSeconds: Double = 4
     
+    let cratersGenerationChance: Int = 55
+    
     let minDistanceBetweenPlantingAreas: CGFloat = 2000
 }
 
