@@ -23,7 +23,7 @@ struct GameConstants{
     let playerSpeed: CGFloat = 1.5
     
     // Players speed in pixels
-    let cameraMovementSpeed: CGFloat = 3
+    let cameraMovementSpeed: CGFloat = 3.2
     
     // - - - - TIMER - - - - //
     

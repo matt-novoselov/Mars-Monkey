@@ -34,8 +34,8 @@ extension GameScene{
             // Generate a random number between 0 and 1
             let randomValue = CGFloat.random(in: 0.0...1.0)
             
-            // Check if the random value is less than 0.5 (50% chance)
-            if randomValue < 0.5 {
+            // Check if the random value is less than 0.7 (70% chance)
+            if randomValue < 0.6 {
                 addChild(newPlantingArea)
             }
         }
