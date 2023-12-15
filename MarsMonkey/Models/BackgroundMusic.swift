@@ -10,10 +10,10 @@ import AVFoundation
 
 var backgroundMusicPlayer: AVAudioPlayer!
 
-override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    playBackgroundMusic()
-}
+//override func viewDidAppear(_ animated: Bool) {
+//    super.viewDidAppear(animated)
+//    playBackgroundMusic()
+//}
 
 func playBackgroundMusic() {
     let musicPath = Bundle.main.url(forResource: "nomemusica", withExtension: "mp3")
@@ -30,4 +30,3 @@ func playBackgroundMusic() {
         print("Errore durante la riproduzione della musica di sottofondo.")
     }
 }
-
