@@ -6,7 +6,6 @@
 //
 
 import SpriteKit
-import SwiftUI
 
 // Class GameScene Keeps Track of the Game Variables
 class GameScene: SKScene{
@@ -74,10 +73,6 @@ class GameScene: SKScene{
         self.playerUpdate()
         self.cameraUpdate()
         self.backgroundUpdate()
-        
-        if timerModel.secondsLeft == 0{
-            gameLogic.finishTheGameWhenTimeIsUp()
-        }
     }
 }
 

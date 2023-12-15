@@ -30,10 +30,12 @@ class GameLogic: ObservableObject{
     // Game Finishing Conditions:
     
     @Published var isTimeUp: Bool = false
-    func finishTheGameWhenTimeIsUp() {
+    func finishTheGameWhenTimeIsUp() -> GameState {
         if self.isTimeUp == false {
             self.isTimeUp = true
             print("The game was finished, because the timer expired")
+            return GameState.timeIsUp
         }
+        return GameState.playing
     }
 }

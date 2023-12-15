@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var timerModel = TimerModel.shared
+    @Binding var currentGameState: GameState
+    var gameLogic: GameLogic = GameLogic.shared
     
     var body: some View {
         VStack {
@@ -16,9 +18,15 @@ struct TimerView: View {
                 .font(Font.custom("RedBurger", size: 48))
                 .foregroundColor(timerModel.secondsLeft > 20 ? .white : .red)
         }
+        .onChange(of: timerModel.secondsLeft){
+            if timerModel.secondsLeft == 0{
+                let newGameState: GameState = gameLogic.finishTheGameWhenTimeIsUp()
+                currentGameState = newGameState
+            }
+        }
     }
 }
 
-#Preview {    
-    TimerView()
+#Preview {
+    TimerView(currentGameState: .constant(.playing))
 }

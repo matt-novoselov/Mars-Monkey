@@ -20,6 +20,7 @@ struct GameView: View {
 
     var body: some View {
         ZStack(alignment: .top){
+
             // SpriteKit staff
             
             SpriteView(
@@ -29,8 +30,8 @@ struct GameView: View {
             .ignoresSafeArea()
   
             // UI overlay elements
-            HStack{
-                TimerView()
+            HStack{                
+                TimerView(currentGameState: $currentGameState)
                 
                 Spacer()
                 
