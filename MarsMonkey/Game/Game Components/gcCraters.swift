@@ -14,12 +14,13 @@ extension GameScene{
     func createCraters() {
         
         // Randomly decide how many craters to create in a row
-        let numberOfCraters = Int.random(in: 1...GameConstants().maxNumberOfCratersInARow)
+        let randomNumber = Int.random(in: 1...10)
+        let numberOfCraters = randomNumber <= 4 ? 2 : 1
+        
         var amountOfTries: Int = 0
         let maxAmountOfTries: Int = 10
         
         // Create a random number of craters
-        
         for _ in 0..<numberOfCraters {
             var craterPosition: CGPoint
             repeat {
@@ -90,7 +91,6 @@ extension GameScene{
         
         let waitAction = SKAction.wait(forDuration: GameConstants().cratersGenerationIntervalInSeconds)
         let createAndWaitAction = SKAction.sequence([createCratersAction, waitAction])
-        
         
         let craterCycleAction = SKAction.repeatForever(createAndWaitAction)
         
