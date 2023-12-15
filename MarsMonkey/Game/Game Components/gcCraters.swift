@@ -62,7 +62,7 @@ extension GameScene{
         return CGPoint(x: positionX, y: positionY)
     }
 
-    private func newCrater(at position: CGPoint) {
+    func newCrater(at position: CGPoint) {
         crater.setScale(0.6)
         let isFlipped = Bool.random() ? 1 : -1
         

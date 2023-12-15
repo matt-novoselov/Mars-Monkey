@@ -66,6 +66,7 @@ class GameScene: SKScene{
         self.setUpBackground()
         self.setUpProgressBar()
         self.startPlantingAreaCycle()
+        self.setUpInitialObstacles()
     }
     
     override func update(_ currentTime: CFTimeInterval) {
@@ -93,6 +94,19 @@ extension GameScene{
     private func setUpPhysicsWorld() {
         physicsWorld.gravity = CGVector(dx: 0, dy: -1.4)
         physicsWorld.contactDelegate = self
+    }
+    
+    private func setUpInitialObstacles() {
+        let initialXplantingArea: CGFloat = crater.size.width/2
+        let finalXplantingArea: CGFloat = self.frame.width - crater.size.width/2
+        let positionXplantingArea = CGFloat.random(in: initialXplantingArea...finalXplantingArea)
+        
+        let initialXcrater: CGFloat = crater.size.width/2
+        let finalXcrater: CGFloat = self.frame.width - crater.size.width/2
+        let positionXcrater = CGFloat.random(in: initialXcrater...finalXcrater)
+        
+        self.addChild(self.newPlantingArea(at: CGPoint(x: positionXplantingArea, y: frame.height/1.5)))
+        self.newCrater(at: CGPoint(x: positionXcrater, y: frame.height - 400))
     }
 }
 
