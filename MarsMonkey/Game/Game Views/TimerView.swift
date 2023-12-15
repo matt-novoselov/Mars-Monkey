@@ -24,6 +24,9 @@ struct TimerView: View {
                 withAnimation { currentGameState = newGameState }
             }
         }
+        .onAppear(){
+            timerModel.startTimer()
+        }
     }
 }
 

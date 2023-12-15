@@ -10,7 +10,7 @@ import Foundation
 
 class TimerModel: ObservableObject {
     static let shared = TimerModel()
-    @Published var secondsLeft: Int = GameConstants().timerDurationInSeconds
+    @Published var secondsLeft: Int = 0
     
     var formattedTime: String {
         let minutes = secondsLeft / 60
@@ -19,14 +19,11 @@ class TimerModel: ObservableObject {
     }
     
     private var timer: Timer?
-    
-    // To inizialize the timer
-    init() {
-        startTimer()
-    }
-    
+        
     // This function starts, decrement and increment the timer in some cases
     func startTimer() {
+        secondsLeft = GameConstants().timerDurationInSeconds
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.secondsLeft > 0 {
                 self.secondsLeft -= 1
