@@ -56,7 +56,7 @@ class GameScene: SKScene{
         super.init(size: CGSize(width: 1179, height: 2556))
         
         // Starts music
-        playBackgroundMusic()
+//        playBackgroundMusic()
     }
     
     required init?(coder aDecoder: NSCoder) {
