@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TimesUpView: View {
-    
+    @AppStorage("savedPlayerName") var savedPlayerName: String = ""
     @Binding var currentGameState: GameState
     
     @State var amountOfBananasPlanted: Int = 0
@@ -16,18 +17,21 @@ struct TimesUpView: View {
     @State var TopPlayerName: String = "Top player"
     @State var TopPlayerScore: String = "999"
     
+    @Environment(\.modelContext) private var context
+    @Query private var items: [MyDataItem]
+    
     var body: some View {
         ZStack{
             Image(.marsBackground)
                 .frame(maxWidth: 0)
             
-            VStack{
+            VStack{                
                 if TopPlayerScore != "0"{
                     TopPlayerCard(TopPlayerName: TopPlayerName, TopPlayerScore: TopPlayerScore)
                     .onAppear(){
-                        TopPlayerName = LeaderboardView(currentGameState: .constant(.leaderboard)).ordinatedItems().first?.name ?? "No name"
+                        TopPlayerName = ordinatedItems(items: items).first?.name ?? "No name"
                         
-                        TopPlayerScore = LeaderboardView(currentGameState: .constant(.leaderboard)).ordinatedItems().first?.score ?? "000"
+                        TopPlayerScore = ordinatedItems(items: items).first?.score ?? "0"
                     }
                 }
                 
@@ -67,10 +71,20 @@ struct TimesUpView: View {
         }
         .onAppear(){
             amountOfBananasPlanted = GameLogic.shared.currentScore
+            
+            let requestResult = addAndCheckItem(playerName: savedPlayerName, score: String(amountOfBananasPlanted), items: items)
+            
+            if requestResult.name == "nil" && requestResult.score == "nil" {
+                try? context.save()
+            }
+            else{
+                context.insert(requestResult)
+            }
         }
     }
 }
 
 #Preview {
     TimesUpView(currentGameState: .constant(GameState.timeIsUp))
+        .modelContainer(for: MyDataItem.self)
 }

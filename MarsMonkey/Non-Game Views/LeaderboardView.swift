@@ -16,35 +16,17 @@ struct LeaderboardView: View {
     @Environment(\.modelContext) private var context
     @Query private var items: [MyDataItem]
     
-    
-    func addAndCheckItem(playerName: String, score: String){
-        if let index = items.firstIndex(where: {item in
-            item.name == playerName})
-        {
-            if (Int(items[index].score) ?? 0 < Int(score) ?? 0){
-                items[index].score = score
-                try? context.save()
-            }
-        }
-        else{
-            let newItem = MyDataItem(name: playerName, score: score)
-            context.insert(newItem)
-        }
-        
-    }
-    
-    func ordinatedItems() -> [MyDataItem] {
-        var sortedItems: [MyDataItem] {
-            return items.sorted { Int($0.score) ?? 0 > Int($1.score) ?? 0 }
-        }
-        
-        return sortedItems
-    }
-    
     var body: some View {
         if gameConstants.isDebug{
             Button("Add a random record") {
-                addAndCheckItem(playerName: "Player\(String(Int.random(in: 1...100)))", score: String(Int.random(in: 1...100)))
+                let requestResult = addAndCheckItem(playerName: "Player\(String(Int.random(in: 1...100)))", score: String(Int.random(in: 1...100)), items: items)
+                
+                if requestResult.name == "nil" && requestResult.score == "nil" {
+                    try? context.save()
+                }
+                else{
+                    context.insert(requestResult)
+                }
             }
         }
         
@@ -59,7 +41,7 @@ struct LeaderboardView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0){
-                        ForEach(Array(ordinatedItems().enumerated()), id: \.1.id) { index, item in
+                        ForEach(Array(ordinatedItems(items: items).enumerated()), id: \.1.id) { index, item in
                             leaderboardParticipant(
                                 playerName: item.name,
                                 playerScore: Int(item.score) ?? 0,
