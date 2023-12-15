@@ -11,7 +11,7 @@ struct TimesUpView: View {
     
     @Binding var currentGameState: GameState
     
-    var amountOfBananasPlanted: Int
+    @State var amountOfBananasPlanted: Int = 0
     
     @State var TopPlayerName: String = "Top player"
     @State var TopPlayerScore: String = "999"
@@ -65,9 +65,12 @@ struct TimesUpView: View {
                 .padding([.leading, .trailing, .bottom], 40)
             }
         }
+        .onAppear(){
+            amountOfBananasPlanted = GameLogic.shared.currentScore
+        }
     }
 }
 
 #Preview {
-    TimesUpView(currentGameState: .constant(GameState.timeIsUp), amountOfBananasPlanted: 10)
+    TimesUpView(currentGameState: .constant(GameState.timeIsUp))
 }
