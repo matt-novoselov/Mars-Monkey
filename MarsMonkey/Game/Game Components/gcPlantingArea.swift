@@ -59,7 +59,7 @@ extension GameScene{
             let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction && trimFactor == 1 else { return }
+                guard let self = self, self.shouldRunAction && trimFactor >= 0.99 else { return }
                 
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
