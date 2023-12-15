@@ -14,8 +14,8 @@ extension GameScene{
     func createCraters() {
         
         // Randomly decide how many craters to create in a row
-        let randomNumber = Int.random(in: 1...10)
-        let numberOfCraters = randomNumber <= 4 ? 2 : 1
+        let randomNumber = Int.random(in: 1...100)
+        let numberOfCraters = randomNumber <= 45 ? gameConstants.maxNumberOfCratersInARow : 1
         
         var amountOfTries: Int = 0
         let maxAmountOfTries: Int = 10
