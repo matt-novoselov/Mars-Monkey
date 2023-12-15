@@ -10,7 +10,7 @@ import SpriteKit
 public var previousPlantingAreaPositions: [CGPoint] = []
 
 extension GameScene{
-    private func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
+    public func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
         plantingArea.setScale(0.45)
         let newPlantingArea = SKSpriteNode(imageNamed: "planting spot")
         
@@ -31,17 +31,7 @@ extension GameScene{
     
     func createPlantingArea() {
         let newPlantingArea: SKSpriteNode = newPlantingArea(at: randomPlantingAreaPosition())
-        
-//        if !isOverlappingWithPreviousCraters(position: newPlantingArea.position){
-//            // Generate a random number between 0 and 1
-//            let randomValue = CGFloat.random(in: 0.0...1.0)
-//            
-//            // Check if the random value is less than 0.7 (70% chance)
-//            if randomValue < 0.6 {
-//                addChild(newPlantingArea)
-//            }
-//        }
-        
+
         if !isOverlappingWithPreviousCraters(position: newPlantingArea.position) && !isAreaFarAway(position: newPlantingArea.position){
             previousPlantingAreaPositions.append(newPlantingArea.position)
             addChild(newPlantingArea)
@@ -69,7 +59,7 @@ extension GameScene{
             let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction else { return }
+                guard let self = self, self.shouldRunAction && trimFactor == 1 else { return }
                 
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
