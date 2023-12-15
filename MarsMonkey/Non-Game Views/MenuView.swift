@@ -13,6 +13,7 @@ struct MenuView: View {
     
     @AppStorage("savedPlayerName") var savedPlayerName: String = ""
     @State var playerName: String = ""
+    @State var isWarningPresented: Bool = false
     
     @FocusState var isFocused : Bool // Bool that checks if the keyboard is shown
     
@@ -56,7 +57,12 @@ struct MenuView: View {
                     .position(CGPoint(x: 180, y: 180))
                 
                 roundedButton(title: "Play", action: {
-                    withAnimation { self.currentGameState = .playing }
+                    if playerName != ""{
+                        withAnimation { self.currentGameState = .playing }
+                    }
+                    else{
+                        withAnimation { isWarningPresented = true }
+                    }
                 })
                 
                 roundedButton(title: "Leaderboard", action: {
@@ -66,6 +72,36 @@ struct MenuView: View {
                 Spacer()
             }
             .padding(.horizontal)
+            
+            if isWarningPresented{
+                ZStack{
+                    Color(.black)
+                        .padding(.all, -100)
+                        .ignoresSafeArea()
+                        .opacity(0.3)
+                    
+                    VStack{
+                        Spacer()
+                        
+                        StrokeText(text: "Please, enter your name", strokeWidth: 1)
+                            .font(Font.custom("RedBurger", size: 24))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                        
+                        Spacer()
+                        
+                        roundedButton(title: "Okay", fontSize: 24, action: {
+                            withAnimation { isWarningPresented = false }
+                        })
+                        .padding()
+                    }
+                    .frame(maxHeight: 200)
+                    .background(.mmPink)
+                    .cornerRadius(10)
+                }
+                .padding()
+            }
         }
         .onTapGesture {
             isFocused=false
