@@ -6,16 +6,19 @@
 //
 
 import Foundation
+import SpriteKit
 import AVFoundation
 
 extension GameScene{
     func playBackgroundMusic(filename: String) {
+        let backgroundVolume: Float = 0.1
+        
         DispatchQueue.global().async {
             if let url = Bundle.main.url(forResource: filename, withExtension: nil) {
                 do {
                     self.backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url)
                     self.backgroundMusicPlayer?.numberOfLoops = -1 // Loop indefinitely
-                    self.backgroundMusicPlayer?.volume = 0.1
+                    self.backgroundMusicPlayer?.volume = backgroundVolume
                     self.backgroundMusicPlayer?.prepareToPlay()
                     self.backgroundMusicPlayer?.play()
                 } catch {
@@ -26,18 +29,7 @@ extension GameScene{
     }
     
     func playOneShotSound(filename: String) {
-        DispatchQueue.global().async {
-            if let url = Bundle.main.url(forResource: filename, withExtension: "mp3") {
-                do {
-                    self.oneShotAudioPlayer = try AVAudioPlayer(contentsOf: url)
-                    self.oneShotAudioPlayer?.numberOfLoops = 0 // Play once
-                    self.oneShotAudioPlayer?.volume = 2
-                    self.oneShotAudioPlayer?.prepareToPlay()
-                    self.oneShotAudioPlayer?.play()
-                } catch {
-                    print("Unable to play one shot audio")
-                }
-            }
-        }
+        let soundAction = SKAction.playSoundFileNamed("\(filename).mp3", waitForCompletion: false)
+        player.run(soundAction)
     }
 }
