@@ -28,6 +28,7 @@
 		1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA87D2B2362C300BCE4A6 /* RedBurger.otf */; };
 		1AD039922B2C8F37001A7A09 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD039912B2C8F37001A7A09 /* LeaderboardModel.swift */; };
 		1AD039942B2E3408001A7A09 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD039932B2E3408001A7A09 /* AudioModel.swift */; };
+		1AD0399A2B2E3A66001A7A09 /* TreePlant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1AD039992B2E3A66001A7A09 /* TreePlant.mp3 */; };
 		4E5209F92B27151800368A14 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5209F82B27151800368A14 /* DataItem.swift */; };
 		CC17CAD22B290E450037BEB2 /* gcCraters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC17CAD12B290E450037BEB2 /* gcCraters.swift */; };
 		CC7E7A742B24947F00392E0E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E7A732B24947F00392E0E /* MenuView.swift */; };
@@ -61,6 +62,7 @@
 		1ACCA87F2B2365B100BCE4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1AD039912B2C8F37001A7A09 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
 		1AD039932B2E3408001A7A09 /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
+		1AD039992B2E3A66001A7A09 /* TreePlant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TreePlant.mp3; sourceTree = "<group>"; };
 		4E5209F82B27151800368A14 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		CC17CAD12B290E450037BEB2 /* gcCraters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gcCraters.swift; sourceTree = "<group>"; };
 		CC7E7A732B24947F00392E0E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		0A689CE42B2BB16500C8385B /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				1AD039992B2E3A66001A7A09 /* TreePlant.mp3 */,
 				0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */,
 			);
 			path = Audio;
@@ -265,6 +268,7 @@
 			files = (
 				1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */,
 				1A35962C2B2347640012D276 /* Assets.xcassets in Resources */,
+				1AD0399A2B2E3A66001A7A09 /* TreePlant.mp3 in Resources */,
 				0A689CE62B2BB1FE00C8385B /* Background_music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

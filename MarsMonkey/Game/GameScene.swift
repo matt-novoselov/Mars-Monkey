@@ -46,6 +46,7 @@ class GameScene: SKScene{
     }
     
     var backgroundMusicPlayer: AVAudioPlayer?
+    var oneShotAudioPlayer: AVAudioPlayer?
     
     // initialization function for GameScene
     init(timerModel: TimerModel) {
@@ -206,6 +207,3 @@ extension GameScene {
         popupLabel.run(sequenceAction)
     }
 }
-
-
-

@@ -63,6 +63,8 @@ extension GameScene{
                 // Check if shouldRunAction is true before executing the block
                 guard let self = self, self.shouldRunAction && trimFactor >= 0.99 else { return }
                 
+                self.playOneShotSound(filename: "TreePlant")
+                
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
                 
