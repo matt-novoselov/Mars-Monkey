@@ -66,9 +66,16 @@ extension GameScene{
                 // Spawn a banana Tree
                 self.spawnBananaTree(plantingAreaPosition: plantingArea.position)
                 
-                // Add a Haptic Effect
+                // Increase score
                 self.gameLogic.scoreIncreaseByOne(points: 1)
+                
+                // Increment timer
                 self.timerModel.modifyTimer(by: self.gameConstants.bananaTreeRewardSeconds)
+                
+                // Show pop-up text
+                showPopupText(text: "+\(gameConstants.bananaTreeRewardSeconds) s", at: plantingArea.position, nodeName: plantingArea.name!)
+                
+                // Add a Haptic Effect
                 softHaptic()
                 
                 // Delete the Asteroid from the Scene

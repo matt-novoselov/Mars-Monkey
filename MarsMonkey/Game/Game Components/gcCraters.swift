@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import SwiftUI
 
 public var previousCraterPositions: [CGPoint] = []
 
@@ -106,11 +107,14 @@ extension GameScene{
 extension GameScene{
     func handleCraterContact(crater: SKNode) {
         
-        // When Asteroid Contacts With a Player
+        // When Crater Contacts With a Player
         if crater.name == "crater" {
             
-            // Delete the Asteroid from the Scene
+            // Delete the Crater from the Scene
             crater.removeFromParent()
+            
+            // Show pop-up text
+            showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: crater.position, nodeName: crater.name!)
             
             // Add a Haptic Effect
             heavyHaptic()
@@ -119,6 +123,7 @@ extension GameScene{
             timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
     }
+    
 }
 
 extension CGFloat {

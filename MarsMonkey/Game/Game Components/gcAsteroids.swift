@@ -67,12 +67,20 @@ extension GameScene{
 extension GameScene {
     
     func handleAsteroidContact(asteroid: SKNode) {
+        
         // When Asteroid Contacts With a Player
         if asteroid.name == "asteroid" {
+            
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
+            
+            // Show pop-up text
+            showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: asteroid.position, nodeName: asteroid.name!)
+            
             // Add a Haptic Effect
             heavyHaptic()
+            
+            // Decrement timer
             timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
         }
     }

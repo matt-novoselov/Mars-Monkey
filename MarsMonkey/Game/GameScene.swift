@@ -155,3 +155,29 @@ extension GameScene: SKPhysicsContactDelegate{
         }
     }
 }
+
+extension GameScene {
+    
+    // Function to display pop-up text
+    func showPopupText(text: String, at position: CGPoint, nodeName: String) {
+        
+        // Label for the text
+        let popupLabel = SKLabelNode(text: text)
+        popupLabel.fontColor = (nodeName == "planting spot" ? SKColor.green : SKColor.black)
+        popupLabel.fontName = "RedBurger"
+        popupLabel.fontSize = 100
+        popupLabel.position = position
+        popupLabel.zPosition = player.zPosition
+        
+        // Add label to the scene
+        addChild(popupLabel)
+        
+        // Action to remove label after 2 seconds
+        let removeAction = SKAction.sequence([
+            SKAction.wait(forDuration: 1.0),
+            SKAction.removeFromParent()
+        ])
+        
+        popupLabel.run(removeAction)
+    }
+}
