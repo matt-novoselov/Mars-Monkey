@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 // Class GameScene Keeps Track of the Game Variables
 class GameScene: SKScene{
@@ -44,6 +45,7 @@ class GameScene: SKScene{
         }
     }
     
+    var backgroundMusicPlayer: AVAudioPlayer?
     
     // initialization function for GameScene
     init(timerModel: TimerModel) {
@@ -66,6 +68,7 @@ class GameScene: SKScene{
         self.setUpProgressBar()
         self.startPlantingAreaCycle()
         self.setUpInitialObstacles()
+        self.playBackgroundMusic(filename: "Background_music.mp3")
     }
     
     override func update(_ currentTime: CFTimeInterval) {
@@ -158,26 +161,51 @@ extension GameScene: SKPhysicsContactDelegate{
 
 extension GameScene {
     
-    // Function to display pop-up text
+    // Function to display pop-up text with fade-out, upward movement, and black stroke
     func showPopupText(text: String, at position: CGPoint, nodeName: String) {
         
         // Label for the text
-        let popupLabel = SKLabelNode(text: text)
-        popupLabel.fontColor = (nodeName == "planting spot" ? SKColor.green : SKColor.black)
-        popupLabel.fontName = "RedBurger"
-        popupLabel.fontSize = 100
+        let popupLabel = SKLabelNode()
+        
+        // Set up the text attributes
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "RedBurger", size: 100)!,
+            .foregroundColor: (nodeName == "planting spot") ? SKColor.greenTree : SKColor.red,
+            .strokeWidth: -3.0,
+            .strokeColor: SKColor.black
+        ]
+        
+        // Create an attributed string with the specified attributes
+        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        
+        // Set the attributed text to the label
+        popupLabel.attributedText = attributedText
+        
+        // Set other properties
         popupLabel.position = position
         popupLabel.zPosition = player.zPosition
         
         // Add label to the scene
         addChild(popupLabel)
         
-        // Action to remove label after 2 seconds
-        let removeAction = SKAction.sequence([
-            SKAction.wait(forDuration: 1.0),
-            SKAction.removeFromParent()
+        // Action to fade out and move label upwards after 1 second
+        let fadeOutAndMoveAction = SKAction.group([
+            SKAction.fadeOut(withDuration: 1.0),
+            SKAction.moveBy(x: 0, y: 50, duration: 1.0)
         ])
         
-        popupLabel.run(removeAction)
+        // Action to remove label from parent
+        let removeFromParentAction = SKAction.removeFromParent()
+        
+        // Sequence to combine fade-out, move, and remove actions
+        let sequenceAction = SKAction.sequence([
+            fadeOutAndMoveAction,
+            removeFromParentAction
+        ])
+        
+        popupLabel.run(sequenceAction)
     }
 }
+
+
+
