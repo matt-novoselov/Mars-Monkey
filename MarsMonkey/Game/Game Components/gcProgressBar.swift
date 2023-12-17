@@ -22,7 +22,7 @@ extension GameScene{
     
     // Function to animate the trim factor from 0 to 1
     func animateTrimFactor() {
-        let duration = 3.0
+        let duration = gameConstants.bananaTreeSecondsToPlant
         let trimAction = SKAction.customAction(withDuration: duration) { (node, elapsedTime) in
             let progress = elapsedTime / CGFloat(duration)
             self.trimFactor = progress

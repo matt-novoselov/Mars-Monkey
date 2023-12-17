@@ -20,7 +20,7 @@ struct GameConstants{
     // - - - - SPEED - - - - //
     
     // Players speed in pixels
-    let playerSpeed: CGFloat = 1.5
+    let playerSpeed: CGFloat = 1.2
     
     // Players speed in pixels
     let cameraMovementSpeed: CGFloat = 3.2
@@ -28,10 +28,10 @@ struct GameConstants{
     // - - - - TIMER - - - - //
     
     // Timer Constant
-    let timerDurationInSeconds: Int = 60
+    let timerDurationInSeconds: Int = 90
     
     // Amount of seconds to spend to plant a banana tree
-    let bananaTreeSecondsToPlant: Int = 3
+    let bananaTreeSecondsToPlant: Double = 3.0
     
     // - - - - IMPACT SCORE - - - - //
     

@@ -15,6 +15,6 @@ extension GameScene{
     }
     
     func cameraUpdate() {
-        cam.position.y += gameConstants.cameraMovementSpeed
+        cam.position.y += gameConstants.cameraMovementSpeed * GameLogic.shared.cameraSpeedIncrementFactor
     }
 }
