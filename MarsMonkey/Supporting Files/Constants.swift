@@ -31,7 +31,7 @@ struct GameConstants{
     let timerDurationInSeconds: Int = 90
     
     // Amount of seconds to spend to plant a banana tree
-    let bananaTreeSecondsToPlant: Double = 3.0
+    let bananaTreeSecondsToPlant: Double = 2
     
     // - - - - IMPACT SCORE - - - - //
     
