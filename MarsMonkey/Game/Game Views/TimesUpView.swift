@@ -43,7 +43,7 @@ struct TimesUpView: View {
                     Image(.timesUpMonkey)
                     
                     if amountOfBananasPlanted>0{
-                        StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana trees", strokeWidth: 1)
+                        StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana tree\(amountOfBananasPlanted>1 ? "s" : "")", strokeWidth: 1)
                             .font(Font.custom("RedBurger", size: 24))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
