@@ -16,6 +16,8 @@ class GameLogic: ObservableObject{
     // Sets Values of Variables at the Beginning of the Game
     func setUpGame(){
         self.currentScore = 0
+        playerSpeedIncrementFactor = 1.00
+        cameraSpeedIncrementFactor = 1.00
         self.isTimeUp = false
     }
     
@@ -28,7 +30,7 @@ class GameLogic: ObservableObject{
     }
     
     // Speed Increment Factor for the Speed of Player
-    @Published var playerSpeedIncrementFactor: Double = 1.00
+    @Published var playerSpeedIncrementFactor: Double = 0
     
     // Increases the Speed of Player
     func increasePlayerSpeedIncrementFactor(by number: Double) {
@@ -36,7 +38,7 @@ class GameLogic: ObservableObject{
     }
     
     // Speed Increment Factor for the Speed of Camera
-    @Published var cameraSpeedIncrementFactor: Double = 1.00
+    @Published var cameraSpeedIncrementFactor: Double = 0
     
     // Increases the Speed of Camera
     func increaseCameraSpeedIncrementFactor(by number: Double) {
