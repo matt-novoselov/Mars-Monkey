@@ -90,7 +90,7 @@ extension GameScene {
             showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: asteroid.position, nodeName: asteroid.name!)
             
             // Add a Haptic Effect
-            heavyHaptic()
+            sequenceHeavyHaptic()
             
             // Decrement timer
             timerModel.modifyTimer(by: gameConstants.decrementSecondsNumber)
