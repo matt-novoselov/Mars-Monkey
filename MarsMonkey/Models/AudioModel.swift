@@ -28,6 +28,11 @@ extension GameScene{
         }
     }
     
+    func stopBackgroundMusic() {
+        self.backgroundMusicPlayer?.stop()
+        self.backgroundMusicPlayer = nil
+    }
+    
     func playOneShotSound(filename: String) {
         let soundAction = SKAction.playSoundFileNamed("\(filename).mp3", waitForCompletion: false)
         player.run(soundAction)

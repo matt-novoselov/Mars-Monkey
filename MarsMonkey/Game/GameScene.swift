@@ -78,6 +78,10 @@ class GameScene: SKScene{
         self.backgroundUpdate()
         self.gameLogic.increasePlayerSpeedIncrementFactor(by: 0.0001)
         self.gameLogic.increaseCameraSpeedIncrementFactor(by: 0.0002)
+        
+        if gameLogic.isTimeUp{
+            self.stopBackgroundMusic()
+        }
     }
 }
 
