@@ -111,7 +111,7 @@ extension GameScene{
         if crater.name == "crater" {
             
             // Delete the Crater from the Scene
-//            crater.removeFromParent()
+            crater.removeFromParent()
             
             // Show pop-up text
             showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: crater.position, nodeName: crater.name!)

@@ -31,13 +31,13 @@ extension GameScene{
     private func newAsteroid(at position: CGPoint) {
         let newAsteroid = SKSpriteNode(imageNamed: "asteroid")
         
-        let trailFire: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidTrailFire")!
-        trailFire.setScale(CGFloat(15))
-        trailFire.zPosition = newAsteroid.zPosition - 1
-        newAsteroid.addChild(trailFire)
+        let trailSmoke: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidSmoke.sks")!
+        trailSmoke.setScale(CGFloat(15))
+        trailSmoke.zPosition = newAsteroid.zPosition - 1
+        newAsteroid.addChild(trailSmoke)
         
         
-        let fire: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidFire")!
+        let fire: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidFire.sks")!
         fire.setScale(CGFloat(13))
         fire.zPosition = newAsteroid.zPosition - 1
         newAsteroid.addChild(fire)
