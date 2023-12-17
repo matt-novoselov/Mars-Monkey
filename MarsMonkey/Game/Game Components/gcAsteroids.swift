@@ -30,6 +30,18 @@ extension GameScene{
     
     private func newAsteroid(at position: CGPoint) {
         let newAsteroid = SKSpriteNode(imageNamed: "asteroid")
+        
+        let trailFire: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidTrailFire")!
+        trailFire.setScale(CGFloat(15))
+        trailFire.zPosition = newAsteroid.zPosition - 1
+        newAsteroid.addChild(trailFire)
+        
+        
+        let fire: SKEmitterNode = SKEmitterNode(fileNamed: "AsteroidFire")!
+        fire.setScale(CGFloat(13))
+        fire.zPosition = newAsteroid.zPosition - 1
+        newAsteroid.addChild(fire)
+
         newAsteroid.name = "asteroid"
         newAsteroid.setScale(0.25)
         newAsteroid.zPosition = 🕹️.zPosition-1
