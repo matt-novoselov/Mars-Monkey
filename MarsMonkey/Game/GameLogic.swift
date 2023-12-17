@@ -27,6 +27,22 @@ class GameLogic: ObservableObject{
         self.currentScore += 1
     }
     
+    // Speed Increment Factor for the Speed of Player
+    @Published var playerSpeedIncrementFactor: Double = 1.00
+    
+    // Increases the Speed of Player
+    func increasePlayerSpeedIncrementFactor(by number: Double) {
+        self.playerSpeedIncrementFactor += number
+    }
+    
+    // Speed Increment Factor for the Speed of Camera
+    @Published var cameraSpeedIncrementFactor: Double = 1.00
+    
+    // Increases the Speed of Camera
+    func increaseCameraSpeedIncrementFactor(by number: Double) {
+        self.cameraSpeedIncrementFactor += number
+    }
+    
     // Game Finishing Conditions:
     
     @Published var isTimeUp: Bool = false

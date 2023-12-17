@@ -22,8 +22,8 @@ extension GameScene{
     
     func joystickUpdate() {
         if 🕹️.isActive { //Update players position based on the joystick's movement
-            player.position = CGPoint(x: player.position.x - (joystickPosX * gameConstants.playerSpeed),
-                                      y: player.position.y + (joystickPosY * gameConstants.playerSpeed))
+            player.position = CGPoint(x: player.position.x - (joystickPosX * gameConstants.playerSpeed * GameLogic.shared.playerSpeedIncrementFactor),
+                                      y: player.position.y + (joystickPosY * gameConstants.playerSpeed * GameLogic.shared.playerSpeedIncrementFactor))
         }
     }
     
