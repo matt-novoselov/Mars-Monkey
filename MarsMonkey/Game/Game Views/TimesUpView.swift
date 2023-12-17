@@ -41,6 +41,8 @@ struct TimesUpView: View {
                         .foregroundColor(.white)
                     
                     Image(.timesUpMonkey)
+                        .resizable()
+                        .scaledToFit()
                     
                     if amountOfBananasPlanted>0{
                         StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana tree\(amountOfBananasPlanted>1 ? "s" : "")", strokeWidth: 1)
