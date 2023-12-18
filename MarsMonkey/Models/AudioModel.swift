@@ -11,7 +11,7 @@ import AVFoundation
 
 extension GameScene{
     func playBackgroundMusic(filename: String) {
-        let backgroundVolume: Float = 0.1
+        let backgroundVolume: Float = 0.05
         
         DispatchQueue.global().async {
             if let url = Bundle.main.url(forResource: filename, withExtension: nil) {

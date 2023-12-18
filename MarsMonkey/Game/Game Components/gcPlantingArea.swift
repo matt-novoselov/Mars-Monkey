@@ -47,6 +47,8 @@ extension GameScene{
                 spriteNode.texture = newTexture
             }
             
+            playOneShotSound(filename: "click")
+            
             lightHaptic()
             
             shouldRunAction = true

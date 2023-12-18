@@ -113,6 +113,8 @@ extension GameScene{
             // Delete the Crater from the Scene
             crater.removeFromParent()
             
+            playOneShotSound(filename: "crater")
+            
             // Show pop-up text
             showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: crater.position, nodeName: crater.name!)
             
