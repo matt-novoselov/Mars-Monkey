@@ -60,10 +60,10 @@ extension GameScene{
             // Run the animation
             animateTrimFactor()
             
-            let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant + 0.05))
+            let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant + 0.01))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction && trimFactor >= 0.95 else { return }
+                guard let self = self, self.shouldRunAction && trimFactor >= 1.0 else { return }
                 
                 self.playOneShotSound(filename: "TreePlant")
                 

@@ -49,6 +49,7 @@ class GameScene: SKScene{
     
     // initialization function for GameScene
     init(timerModel: TimerModel) {
+        self.backgroundMusicPlayer = AVAudioPlayer()
         self.timerModel = timerModel
         super.init(size: CGSize(width: 1179, height: 2556))
     }
@@ -68,7 +69,10 @@ class GameScene: SKScene{
         self.setUpProgressBar()
         self.startPlantingAreaCycle()
         self.setUpInitialObstacles()
-        self.playBackgroundMusic(filename: "Background_music.mp3")
+        
+        // Initialize background music with a file named "background_music.mp3"
+        initializeBackgroundMusic(filename: "Background_music.mp3")
+        playBackgroundMusic()
     }
     
     override func update(_ currentTime: CFTimeInterval) {

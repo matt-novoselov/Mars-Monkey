@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 class GameLogic: ObservableObject{
     let gameConstants: GameConstants = GameConstants()
+    
+    @AppStorage("savedSoundEffectsVolume") var savedSoundEffectsVolume: Double = 0.05
+    @AppStorage("savedMusicVolume") var savedMusicVolume: Double = 0.05
     
     // Variable Used To Transfer the Values of Variables from this File to Other Files
     static let shared: GameLogic = GameLogic()
