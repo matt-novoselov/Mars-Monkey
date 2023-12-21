@@ -29,8 +29,12 @@ extension GameScene{
     
     // Joystick becomes active after user touches the screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !🕹️.isActive {
-            🕹️.isActive = true
+        for touch in touches {
+            let location = touch.location(in: cam)
+            if !🕹️.isActive {
+                🕹️.isActive = true
+                🕹️.setNewPosition(withLocation: CGPoint(x: location.x, y: location.y))
+            }
         }
     }
     

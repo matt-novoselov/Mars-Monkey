@@ -56,6 +56,12 @@ class Joystick: SKShapeNode {
         child.lineWidth = 5
         child.zPosition = 100
     }
+    
+    // Update joystick's position on new tap
+    public func setNewPosition(withLocation location: CGPoint) {
+        self.position = location
+        self.child.position = location
+    }
 
     // All matghematical calculatoins are being performed in this function
     public func getDist(withLocation location: CGPoint) -> (xDist: CGFloat, yDist: CGFloat) {
