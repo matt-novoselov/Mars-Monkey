@@ -87,20 +87,20 @@ extension GameScene{
         addChild(newCrater)
     }
 
-    func startCratersCycle() {
-        previousCraterPositions = []
-        
-        let createCratersAction = SKAction.run { [weak self] in
-            self?.createCraters()
-        }
-        
-        let waitAction = SKAction.wait(forDuration: GameConstants().cratersGenerationIntervalInSeconds)
-        let createAndWaitAction = SKAction.sequence([createCratersAction, waitAction])
-        
-        let craterCycleAction = SKAction.repeatForever(createAndWaitAction)
-        
-        run(craterCycleAction)
-    }
+//    func startCratersCycle() {
+//        previousCraterPositions = []
+//        
+//        let createCratersAction = SKAction.run { [weak self] in
+//            self?.createCraters()
+//        }
+//        
+//        let waitAction = SKAction.wait(forDuration: GameConstants().cratersGenerationIntervalInSeconds)
+//        let createAndWaitAction = SKAction.sequence([createCratersAction, waitAction])
+//        
+//        let craterCycleAction = SKAction.repeatForever(createAndWaitAction)
+//        
+//        run(craterCycleAction)
+//    }
 }
 
 // Handling the Contact of the Crater with the Player
@@ -112,8 +112,6 @@ extension GameScene{
             
             // Delete the Crater from the Scene
             crater.removeFromParent()
-            
-            playOneShotSound(filename: "crater")
             
             // Show pop-up text
             showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: crater.position, nodeName: crater.name!)

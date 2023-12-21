@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A689CE62B2BB1FE00C8385B /* Background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */; };
 		0AAC29D02B270BE00069EE9F /* Timer Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* Timer Model.swift */; };
 		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
 		1A0396532B248E2E000DB43C /* Haptic Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* Haptic Model.swift */; };
-		1A2390C32B30555000932D1A /* crater.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C02B30555000932D1A /* crater.mp3 */; };
-		1A2390C42B30555000932D1A /* asteroid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C12B30555000932D1A /* asteroid.mp3 */; };
-		1A2390C62B3056CE00932D1A /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C52B3056CE00932D1A /* click.mp3 */; };
-		1A2390C82B30573100932D1A /* Background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C72B30573100932D1A /* Background_music.mp3 */; };
 		1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3596272B2347630012D276 /* MarsMonkeyApp.swift */; };
 		1A35962C2B2347640012D276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35962B2B2347640012D276 /* Assets.xcassets */; };
 		1A388A402B2608DF000A2507 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A388A3F2B2608DF000A2507 /* ContentView.swift */; };
@@ -45,13 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Background_music.mp3; sourceTree = "<group>"; };
 		0AAC29CF2B270BE00069EE9F /* Timer Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer Model.swift"; sourceTree = "<group>"; };
 		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* Haptic Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Haptic Model.swift"; sourceTree = "<group>"; };
-		1A2390C02B30555000932D1A /* crater.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crater.mp3; sourceTree = "<group>"; };
-		1A2390C12B30555000932D1A /* asteroid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = asteroid.mp3; sourceTree = "<group>"; };
-		1A2390C52B3056CE00932D1A /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
-		1A2390C72B30573100932D1A /* Background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Background_music.mp3; sourceTree = "<group>"; };
 		1A3596242B2347630012D276 /* MarsMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3596272B2347630012D276 /* MarsMonkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsMonkeyApp.swift; sourceTree = "<group>"; };
 		1A35962B2B2347640012D276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,11 +92,8 @@
 		0A689CE42B2BB16500C8385B /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				1A2390C52B3056CE00932D1A /* click.mp3 */,
-				1A2390C12B30555000932D1A /* asteroid.mp3 */,
-				1A2390C02B30555000932D1A /* crater.mp3 */,
 				1AD039992B2E3A66001A7A09 /* TreePlant.mp3 */,
-				1A2390C72B30573100932D1A /* Background_music.mp3 */,
+				0A689CE52B2BB1FE00C8385B /* Background_music.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -292,16 +283,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A2390C82B30573100932D1A /* Background_music.mp3 in Resources */,
 				1ACCA87E2B2362C300BCE4A6 /* RedBurger.otf in Resources */,
-				1A2390C62B3056CE00932D1A /* click.mp3 in Resources */,
 				1AD0399F2B2F2E34001A7A09 /* AsteroidSmoke.sks in Resources */,
 				1A35962C2B2347640012D276 /* Assets.xcassets in Resources */,
-				1A2390C42B30555000932D1A /* asteroid.mp3 in Resources */,
 				1AD0399A2B2E3A66001A7A09 /* TreePlant.mp3 in Resources */,
 				1AD039A32B2F35EA001A7A09 /* AsteroidFire.sks in Resources */,
-				1A2390C32B30555000932D1A /* crater.mp3 in Resources */,
 				1AD039A02B2F2E34001A7A09 /* Assets.xcassets in Resources */,
+				0A689CE62B2BB1FE00C8385B /* Background_music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

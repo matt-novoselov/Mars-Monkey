@@ -86,8 +86,6 @@ extension GameScene {
             // Delete the Asteroid from the Scene
             asteroid.removeFromParent()
             
-            playOneShotSound(filename: "asteroid")
-            
             // Show pop-up text
             showPopupText(text: "\(gameConstants.decrementSecondsNumber) s", at: asteroid.position, nodeName: asteroid.name!)
             

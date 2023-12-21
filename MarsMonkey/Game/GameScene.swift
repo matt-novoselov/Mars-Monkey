@@ -29,6 +29,8 @@ class GameScene: SKScene{
     
     var shouldRunAction = true
     
+    let tolerance: Double = 30  // Adjust this tolerance level as needed
+    
     var 🕹️: Joystick = Joystick(radius: 150) // Creating a joystick
     var joystickPosX: CGFloat = 0 // var representing how far the joystick was dragged on X axis
     var joystickPosY: CGFloat = 0 // var representing how far the joystick was dragged on Y axis
@@ -66,8 +68,8 @@ class GameScene: SKScene{
         self.setUpCamera()
         self.setUpBackground()
         self.setUpProgressBar()
-        self.startPlantingAreaCycle()
-        self.setUpInitialObstacles()
+//        self.startPlantingAreaCycle()
+//        self.setUpInitialObstacles()
         self.playBackgroundMusic(filename: "Background_music.mp3")
     }
     
@@ -76,12 +78,26 @@ class GameScene: SKScene{
         self.playerUpdate()
         self.cameraUpdate()
         self.backgroundUpdate()
-        self.gameLogic.increasePlayerSpeedIncrementFactor(by: 0.0)
-        self.gameLogic.increaseCameraSpeedIncrementFactor(by: 0.0)
+        self.gameLogic.increasePlayerSpeedIncrementFactor(by: 0.0001)
+        self.gameLogic.increaseCameraSpeedIncrementFactor(by: 0.0002)
         
         if gameLogic.isTimeUp{
             self.stopBackgroundMusic()
         }
+        
+        let minDistance = self.player.size.width + crater.size.width + 50
+        let remainder = self.cam.position.y.truncatingRemainder(dividingBy: minDistance)
+        let remainder2 = self.cam.position.y.truncatingRemainder(dividingBy: minDistance/2)
+        
+        // Check if the remainder is within the tolerance level
+        if abs(remainder) < tolerance {
+            self.createCraters()
+        }
+
+        if abs(remainder2) < tolerance {
+            self.createPlantingArea()
+        }
+        
     }
 }
 
@@ -91,8 +107,8 @@ extension GameScene{
         self.gameLogic.setUpGame()
         self.physicsWorld.contactDelegate = self
         self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
-        self.startAsteroidsCycle()
-        self.startCratersCycle()
+//        self.startAsteroidsCycle()
+//        self.startCratersCycle()
     }
     
     private func setUpPhysicsWorld() {

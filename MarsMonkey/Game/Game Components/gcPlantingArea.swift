@@ -47,8 +47,6 @@ extension GameScene{
                 spriteNode.texture = newTexture
             }
             
-            playOneShotSound(filename: "click")
-            
             lightHaptic()
             
             shouldRunAction = true
@@ -60,10 +58,10 @@ extension GameScene{
             // Run the animation
             animateTrimFactor()
             
-            let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant + 0.05))
+            let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant + 0.01))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction && trimFactor >= 0.95 else { return }
+                guard let self = self, self.shouldRunAction && trimFactor >= 1.0 else { return }
                 
                 self.playOneShotSound(filename: "TreePlant")
                 
@@ -147,19 +145,19 @@ extension GameScene{
         return false
     }
     
-    func startPlantingAreaCycle() {
-        previousPlantingAreaPositions = []
-        
-        let createPlantingAreaAction = SKAction.run { [weak self] in
-            self!.createPlantingArea()
-        }
-        
-        let waitAction = SKAction.wait(forDuration: gameConstants.cratersGenerationIntervalInSeconds/2)
-        let createAndWaitAction = SKAction.sequence([createPlantingAreaAction, waitAction])
-        
-        let plantingAreaAction = SKAction.repeatForever(createAndWaitAction)
-        run(plantingAreaAction)
-    }
+//    func startPlantingAreaCycle() {
+//        previousPlantingAreaPositions = []
+//        
+//        let createPlantingAreaAction = SKAction.run { [weak self] in
+//            self!.createPlantingArea()
+//        }
+//        
+//        let waitAction = SKAction.wait(forDuration: gameConstants.cratersGenerationIntervalInSeconds/2)
+//        let createAndWaitAction = SKAction.sequence([createPlantingAreaAction, waitAction])
+//        
+//        let plantingAreaAction = SKAction.repeatForever(createAndWaitAction)
+//        run(plantingAreaAction)
+//    }
     
     private func randomPlantingAreaPosition() -> CGPoint {
         let initialX: CGFloat = plantingArea.size.width/2 + 50

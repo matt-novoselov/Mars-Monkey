@@ -28,7 +28,7 @@ struct GameConstants{
     // - - - - TIMER - - - - //
     
     // Timer Constant
-    let timerDurationInSeconds: Int = 90
+    let timerDurationInSeconds: Int = 90000000
     
     // Amount of seconds to spend to plant a banana tree
     let bananaTreeSecondsToPlant: Double = 2
