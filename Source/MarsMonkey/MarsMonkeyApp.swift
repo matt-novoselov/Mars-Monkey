@@ -18,6 +18,7 @@ struct MarsMonkeyApp: App {
                 .statusBar(hidden: true)
                 .persistentSystemOverlays(.hidden)
         }
+        // Initialize model container for SwiftData
         .modelContainer(for: MyDataItem.self)
     }
 }

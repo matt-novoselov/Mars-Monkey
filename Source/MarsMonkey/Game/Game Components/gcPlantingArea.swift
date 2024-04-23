@@ -7,10 +7,16 @@
 
 import SpriteKit
 
+// Store positions of all previous planting areas spawned to the game scene
 public var previousPlantingAreaPositions: [CGPoint] = []
 
+// Previous planting  game logic
 extension GameScene{
+    
+    // Function to create a new planting areas
     public func newPlantingArea(at position: CGPoint) -> SKSpriteNode{
+        
+        // Define texture for planting spot
         plantingArea.setScale(0.45)
         let newPlantingArea = SKSpriteNode(imageNamed: "planting spot")
         
@@ -18,6 +24,8 @@ extension GameScene{
         newPlantingArea.name = "planting spot"
         newPlantingArea.zPosition = player.zPosition - 1
         newPlantingArea.position = position
+        
+        // Setup physics property of the object
         newPlantingArea.physicsBody = SKPhysicsBody(circleOfRadius: plantingArea.size.width/2)
         newPlantingArea.physicsBody?.affectedByGravity = false
         newPlantingArea.physicsBody?.allowsRotation = false
@@ -29,6 +37,7 @@ extension GameScene{
         return newPlantingArea
     }
     
+    // Function to create a new planting area
     func createPlantingArea() {
         let newPlantingArea: SKSpriteNode = newPlantingArea(at: randomPlantingAreaPosition())
 
@@ -47,11 +56,13 @@ extension GameScene{
                 spriteNode.texture = newTexture
             }
             
+            // Play sound effect
             playOneShotSound(filename: "click")
             
+            // Perform light haptic
             lightHaptic()
             
-            shouldRunAction = true
+            shouldRunPlantingTree = true
             trimFactor = 0
             let circleNode = circleNode
             circleNode.position = CGPoint(x: self.position.x, y: self.position.y - 20)
@@ -63,7 +74,7 @@ extension GameScene{
             let waitAction = SKAction.wait(forDuration: TimeInterval(gameConstants.bananaTreeSecondsToPlant + 0.05))
             let addNodeAction = SKAction.run { [weak self] in
                 // Check if shouldRunAction is true before executing the block
-                guard let self = self, self.shouldRunAction && trimFactor >= 0.95 else { return }
+                guard let self = self, self.shouldRunPlantingTree && trimFactor >= 0.95 else { return }
                 
                 self.playOneShotSound(filename: "TreePlant")
                 
@@ -88,7 +99,7 @@ extension GameScene{
             
             let sequenceAction = SKAction.sequence([waitAction, addNodeAction])
             
-            if self.shouldRunAction{
+            if self.shouldRunPlantingTree{
                 run(sequenceAction)
             }
         }
@@ -104,11 +115,12 @@ extension GameScene{
                 spriteNode.texture = newTexture
             }
             
-            shouldRunAction = false
+            shouldRunPlantingTree = false
             plantingArea.removeAllChildren()
         }
     }
     
+    // Function to change texture to banana tree
     func spawnBananaTree(plantingAreaPosition: CGPoint){
         let palmTree = SKSpriteNode(imageNamed: "Palm Tree")
         palmTree.setScale(0.8)
@@ -117,6 +129,7 @@ extension GameScene{
         addChild(palmTree)
     }
     
+    // Function to check if the crater is overlapping with any of the previously spawned planting areas
     private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
         let minimumDistance: CGFloat = (crater.size.width/2 + plantingArea.size.width/2 + 25)
         
@@ -133,6 +146,7 @@ extension GameScene{
         return false
     }
     
+    // Function that checks if the player has stepped away from planting area
     private func isAreaFarAway(position: CGPoint) -> Bool {
         let minimumDistance: CGFloat = gameConstants.minDistanceBetweenPlantingAreas // min distance between 2 planting areas
         
@@ -147,6 +161,7 @@ extension GameScene{
         return false
     }
     
+    // Function that is constantly generating new planting areas
     func startPlantingAreaCycle() {
         previousPlantingAreaPositions = []
         
@@ -161,6 +176,7 @@ extension GameScene{
         run(plantingAreaAction)
     }
     
+    // Function that generates a new random planting area position
     private func randomPlantingAreaPosition() -> CGPoint {
         let initialX: CGFloat = plantingArea.size.width/2 + 50
         let finalX: CGFloat = self.frame.width - plantingArea.size.width/2 - 50

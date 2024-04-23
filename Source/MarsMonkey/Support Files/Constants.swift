@@ -48,12 +48,16 @@ struct GameConstants{
     
     // - - - - OBJECTS GENERATION CONSTRAINTS - - - - //
     
+    // A maximum amount of craters that can be generated in one row
     let maxNumberOfCratersInARow = 2
     
+    // An amount of seconds between rows of craters
     let cratersGenerationIntervalInSeconds: Double = 4
     
-    let cratersGenerationChance: Int = 55
+    // A chance for one crater to be generated
+    let cratersGenerationChance: Int = 55 // 55 out of 100
     
+    // A minimum distance between two planting areas
     let minDistanceBetweenPlantingAreas: CGFloat = 2000
 }
 

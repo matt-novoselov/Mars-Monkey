@@ -9,8 +9,12 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
+// Extensions to play music or sound effects
 extension GameScene{
+    
+    // Function to play background music in the game scene on the loop
     func playBackgroundMusic(filename: String) {
+        // Adjust background volume
         let backgroundVolume: Float = 0.05
         
         DispatchQueue.global().async {
@@ -28,11 +32,13 @@ extension GameScene{
         }
     }
     
+    // Function to stop background music in the game scene
     func stopBackgroundMusic() {
         self.backgroundMusicPlayer?.stop()
         self.backgroundMusicPlayer = nil
     }
     
+    // Function to play sound effect one time
     func playOneShotSound(filename: String) {
         let soundAction = SKAction.playSoundFileNamed("\(filename).mp3", waitForCompletion: false)
         player.run(soundAction)

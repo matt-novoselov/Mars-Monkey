@@ -2,29 +2,38 @@
 //  Joystick.swift
 //  joystick
 //
-//  Created by Matheus Silva on 09/10/19.
-//  Copyright © 2019 Matheus Gois. All rights reserved.
-//
 
 import SpriteKit
 
 class Joystick: SKShapeNode {
     
+    // Indicates whether the joystick is active or not
     public var isActive: Bool = false
     
+    // Radius of the joystick
     private(set) var radius: CGFloat = 0
+    
+    // Child node representing the joystick's button
     private(set) var child: SKShapeNode = SKShapeNode()
     
+    // Vector representing the direction of the joystick
     private(set) var vector: CGVector = CGVector()
+    
+    // Angle of the joystick
     private(set) var angle: CGFloat = 0
+    
+    // Radius of the joystick's base
     private(set) var raio: CGFloat = 0
     
+    // Constant representing 90 degrees in radians
     private var radius90: CGFloat = 1.57079633
     
+    // MARK: Initialization
     override init() {
         super.init()
     }
 
+    // Convenience initializer with a specified radius
     convenience init(radius: CGFloat) {
         self.init()
         self.radius = radius
@@ -39,15 +48,15 @@ class Joystick: SKShapeNode {
     // Set up properties of the joystick's base
     private func createJoystickBase() {
         self.path = CGPath(ellipseIn: CGRect(origin: CGPoint(x: -radius, y: -radius),
-                                             size:   CGSize(width: radius * 2, height: radius * 2)),
-                                             transform: nil)
+                                             size: CGSize(width: radius * 2, height: radius * 2)),
+                           transform: nil)
         self.strokeColor = .black
         self.alpha = 0.7
         self.lineWidth = 15
         self.zPosition = 99
     }
     
-    // Set up properties of the joystick's child
+    // Set up properties of the joystick's button
     private func createJoystickBaseMain() {
         child = SKShapeNode(circleOfRadius: radius / 2)
         child.fillColor = .mmPink
@@ -57,7 +66,7 @@ class Joystick: SKShapeNode {
         child.zPosition = 100
     }
 
-    // All matghematical calculatoins are being performed in this function
+    // Perform mathematical calculations based on the joystick's position
     public func getDist(withLocation location: CGPoint) -> (xDist: CGFloat, yDist: CGFloat) {
         
         vector = CGVector(dx: location.x - self.position.x,
@@ -78,7 +87,7 @@ class Joystick: SKShapeNode {
         return (xDist: xDist, yDist: yDist)
     }
     
-    // Return joystick's button to the center after the joystick is untouched
+    // Return the joystick's button to the center after it's untouched
     public func coreReturn() {
         let retorno: SKAction = SKAction.move(to: self.position, duration: 0.05)
         retorno.timingMode = .easeOut
@@ -86,3 +95,4 @@ class Joystick: SKShapeNode {
         isActive = false
     }
 }
+

@@ -1,3 +1,11 @@
+//
+//  Constants.swift
+//  MarsMonkey
+//
+//  Created by Mariia Chemerys on 10.12.2023.
+//
+
+
 import SwiftUI
 import CoreHaptics
 
@@ -19,7 +27,7 @@ func heavyHaptic() {
     lightHaptic.impactOccurred()
 }
 
-// This function is used to perform heavy haptic feedback.
+// This function is used to perform a sequence of haptic feedbacks.
 func sequenceHeavyHaptic() {
     UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
 

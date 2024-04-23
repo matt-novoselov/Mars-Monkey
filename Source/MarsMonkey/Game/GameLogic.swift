@@ -46,7 +46,6 @@ class GameLogic: ObservableObject{
     }
     
     // Game Finishing Conditions:
-    
     @Published var isTimeUp: Bool = false
     func finishTheGameWhenTimeIsUp() -> GameState {
         if self.isTimeUp == false {

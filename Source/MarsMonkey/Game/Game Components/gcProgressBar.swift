@@ -7,6 +7,7 @@
 
 import SpriteKit
 
+// Progress bar game logic
 extension GameScene{
     // Function to update the circle path based on the trim factor
     func updateCirclePath() {

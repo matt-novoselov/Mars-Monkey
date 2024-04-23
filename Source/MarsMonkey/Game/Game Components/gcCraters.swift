@@ -8,10 +8,13 @@
 import SpriteKit
 import SwiftUI
 
+// Store positions of all previous craters spawned to the game scene
 public var previousCraterPositions: [CGPoint] = []
 
+// Craters game logic
 extension GameScene{
-
+    
+    // Function to create a new crater
     func createCraters() {
         
         // Randomly decide how many craters to create in a row
@@ -37,22 +40,26 @@ extension GameScene{
         
     }
     
+    // Function to check if the crater is overlapping with any of the previously spawned craters
     private func isOverlappingWithPreviousCraters(position: CGPoint) -> Bool {
+        
+        // Define min distance, so the player can pass between craters
         let minimumDistance: CGFloat = (self.player.size.width + crater.size.width + 50)
-
-           for previousPosition in previousCraterPositions {
-               let distanceX = abs(position.x - previousPosition.x)
-               let distanceY = abs(position.y - previousPosition.y)
-
-               // Check for overlap in both x and y axes
-               if distanceX < minimumDistance && distanceY < minimumDistance {
-                   return true // Overlapping with a previous crater
-               }
-           }
-
-           return false
-       }
+        
+        for previousPosition in previousCraterPositions {
+            let distanceX = abs(position.x - previousPosition.x)
+            let distanceY = abs(position.y - previousPosition.y)
+            
+            // Check for overlap in both x and y axes
+            if distanceX < minimumDistance && distanceY < minimumDistance {
+                return true // Overlapping with a previous crater
+            }
+        }
+        
+        return false
+    }
     
+    // Function to generate a random crater position
     private func randomCraterPosition() -> CGPoint {
         let initialX: CGFloat = crater.size.width/2
         let finalX: CGFloat = self.frame.width - crater.size.width/2
@@ -64,18 +71,26 @@ extension GameScene{
         
         return CGPoint(x: positionX, y: positionY + randomYshift + 75)
     }
-
+    
+    // Function to spawn a new crater at a given position
     func newCrater(at position: CGPoint) {
+        
         crater.setScale(0.6)
+        
+        // Randomly flip crater to give a more unique look
         let isFlipped = Bool.random() ? 1 : -1
         
+        // Define texture for crater
         let newCrater = SKSpriteNode(imageNamed: "crater")
         newCrater.name = "crater"
+        
+        // Set scale and position
         newCrater.scale(to: crater.size)
         newCrater.xScale = CGFloat(isFlipped) * crater.xScale
         newCrater.zPosition = player.zPosition - 2
         newCrater.position = position
         
+        // Setup physics properties
         newCrater.physicsBody = SKPhysicsBody(circleOfRadius: newCrater.size.width/2)
         newCrater.physicsBody?.affectedByGravity = false
         newCrater.physicsBody?.allowsRotation = false
@@ -84,9 +99,11 @@ extension GameScene{
         newCrater.physicsBody?.categoryBitMask = InstanceCategory.crater
         newCrater.physicsBody?.contactTestBitMask = InstanceCategory.player
         
+        // Add crater to the scene
         addChild(newCrater)
     }
-
+    
+    // Function that is constantly generating new craters
     func startCratersCycle() {
         previousCraterPositions = []
         
@@ -128,6 +145,7 @@ extension GameScene{
     
 }
 
+// Extension for CGFloat random generation
 extension CGFloat {
     static func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat(arc4random_uniform(UInt32(max - min + 1))) + min

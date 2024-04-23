@@ -8,10 +8,16 @@
 import Foundation
 import SwiftData
 
+// Define Data Item for Swift Data
 @Model
 class MyDataItem: Identifiable {
+    
     var id: UUID
+    
+    // User name from text Field
     var name: String
+    
+    // User highest score
     var score: String
     
     init(name: String, score: String){

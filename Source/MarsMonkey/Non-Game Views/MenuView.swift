@@ -7,64 +7,84 @@
 
 import SwiftUI
 
+// Main game menu View
 struct MenuView: View {
     
+    // Current game state, which can be menu, playing, timeIsUp, leaderboard
     @Binding var currentGameState: GameState
     
+    // Saved player nave for user defaults
     @AppStorage("savedPlayerName") var savedPlayerName: String = ""
+    
+    // Inputted player name
     @State var playerName: String = ""
+    
+    // Overlay sheet that is present when the user hasn't inputted the name before the start of the game
     @State var isWarningPresented: Bool = false
     
-    @FocusState var isFocused : Bool // Bool that checks if the keyboard is shown
+    // Bool that checks if the keyboard is shown
+    @FocusState var isFocused : Bool
     
     var body: some View {
         ZStack {
+            // Background color
             Color(.mmUIBackground)
                 .ignoresSafeArea()
             
             VStack{
+                // Game title
                 StrokeText(text: "Mars Monkey", strokeWidth: 1)
                     .font(Font.custom("RedBurger", size: 55))
                     .foregroundColor(.white)
                 
                 HStack {
+                    // Text field to input user name
                     TextField("Enter your name", text: $playerName)
-                        .background(
+                        .background{
                             Rectangle()
                                 .foregroundColor(.mmPinkButton)
                                 .cornerRadius(10)
                                 .frame(width: 340, height: 100, alignment: .center)
-                        )
+                        }
                         .focused($isFocused)
                         .frame(width: 300)
                         .font(Font.custom("RedBurger", size: 30))
                         .foregroundColor(.black)
+                    
+                        // Open keyboard on tap
                         .onTapGesture {
                             isFocused = true
                         }
+                    
+                        // Save new player name when edit is finished
                         .onChange(of: playerName){
                             savedPlayerName = playerName
                         }
+                        
+                        // Extract saved user name and put it to the field
                         .onAppear(){
                             playerName = savedPlayerName
                         }
                 }
                 .ignoresSafeArea(.keyboard)
                 
+                // Logo
                 Image(.monkeyOnMarsPlanet)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .position(CGPoint(x: 180, y: 180))
                 
+                // Play button
                 roundedButton(title: "Play", action: {
+                    // Present warning if player name is empty
                     if playerName != ""{
                         withAnimation { self.currentGameState = .playing }
-                    }
-                    else{
+                    } else{
                         withAnimation { isWarningPresented = true }
                     }
                 })
                 
+                // Leaderboard button
                 roundedButton(title: "Leaderboard", action: {
                     withAnimation { self.currentGameState = .leaderboard }
                 })
@@ -73,6 +93,7 @@ struct MenuView: View {
             }
             .padding(.horizontal)
             
+            // Input user name warning
             if isWarningPresented{
                 ZStack{
                     Color(.black)
@@ -102,6 +123,7 @@ struct MenuView: View {
                 }
                 .padding()
             }
+
         }
         .onTapGesture {
             isFocused=false
@@ -112,4 +134,3 @@ struct MenuView: View {
 #Preview {
     MenuView(currentGameState: .constant(GameState.menu))
 }
-
