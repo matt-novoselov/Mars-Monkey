@@ -13,6 +13,8 @@ Mars Monkey - a game about a brave monkey who has decided to colonize Mars by pl
   <img src="https://github.com/matt-novoselov/Mars-Monkey/blob/139cbc5ca809a078b0f55a24660d4bde80379225/MarsMonkeyApp.png" alt="GIF">
 </a>
 
+[![](https://github.com/matt-novoselov/matt-novoselov/blob/34555effedede5dd5aa24ae675218d989e976cf6/Files/YouTube_Badge.svg)](https://youtu.be/SX-dCDzpXVU)
+
 ## Description
 SwiftUI SpriteKit SwiftData AVFoundation !!!!!
 
