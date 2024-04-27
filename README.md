@@ -10,7 +10,7 @@
 Mars Monkey - a game about a brave monkey who has decided to colonize Mars by planting banana trees on the planet. Dangerous obstacles and exciting adventures await you. Earn the highest score for your monkey and compete with other players for first place!
 
 <a href="https://youtu.be/SX-dCDzpXVU" target="_blank">
-  <img src="https://github.com/matt-novoselov/Mars-Monkey/blob/139cbc5ca809a078b0f55a24660d4bde80379225/MarsMonkeyApp.png" alt="GIF">
+  <img src="https://github.com/matt-novoselov/Mars-Monkey/assets/59065228/6e0b57af-73fc-4289-a273-eeddfe7a5140" alt="GIF">
 </a>
 
 [![](https://github.com/matt-novoselov/matt-novoselov/blob/34555effedede5dd5aa24ae675218d989e976cf6/Files/YouTube_Badge.svg)](https://youtu.be/SX-dCDzpXVU)
