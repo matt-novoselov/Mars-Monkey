@@ -21,56 +21,54 @@ struct TimesUpView: View {
     @Query private var items: [MyDataItem]
     
     var body: some View {
-        ZStack{
-            Image(.marsBackground)
-                .frame(maxWidth: 0)
-            
-            VStack{                
-                if TopPlayerScore != "0"{
-                    TopPlayerCard(TopPlayerName: TopPlayerName, TopPlayerScore: TopPlayerScore)
+        VStack{
+            if TopPlayerScore != "0"{
+                TopPlayerCard(TopPlayerName: TopPlayerName, TopPlayerScore: TopPlayerScore)
                     .onAppear(){
                         TopPlayerName = ordinatedItems(items: items).first?.name ?? "No name"
                         
                         TopPlayerScore = ordinatedItems(items: items).first?.score ?? "0"
                     }
+            }
+            
+            VStack(spacing: 20){
+                StrokeText(text: "Time’s up!", strokeWidth: 1)
+                    .font(Font.custom("RedBurger", size: 48))
+                    .foregroundColor(.white)
+                
+                Image(.timesUpMonkey)
+                    .resizable()
+                    .scaledToFit()
+                
+                if amountOfBananasPlanted>0{
+                    StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana tree\(amountOfBananasPlanted>1 ? "s" : "")", strokeWidth: 1)
+                        .font(Font.custom("RedBurger", size: 24))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }
+                else{
+                    StrokeText(text: "You did't plant any banana trees", strokeWidth: 1)
+                        .font(Font.custom("RedBurger", size: 24))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                 }
                 
-                VStack(spacing: 20){
-                    StrokeText(text: "Time’s up!", strokeWidth: 1)
-                        .font(Font.custom("RedBurger", size: 48))
-                        .foregroundColor(.white)
-                    
-                    Image(.timesUpMonkey)
-                        .resizable()
-                        .scaledToFit()
-                    
-                    if amountOfBananasPlanted>0{
-                        StrokeText(text: "Congrats on planting \(amountOfBananasPlanted) banana tree\(amountOfBananasPlanted>1 ? "s" : "")", strokeWidth: 1)
-                            .font(Font.custom("RedBurger", size: 24))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                    }
-                    else{
-                        StrokeText(text: "You did't plant any banana trees", strokeWidth: 1)
-                            .font(Font.custom("RedBurger", size: 24))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                    }
-                    
-                    roundedButton(title: "Menu", fontSize: 24, action: {
-                        withAnimation { self.currentGameState = .menu }
-                    })
-                    
-                    roundedButton(title: "Leaderboard", fontSize: 24, action: {
-                        withAnimation { self.currentGameState = .leaderboard }
-                    })
-                }
-                .padding()
-                .background(.mmPink)
-                .cornerRadius(10)
-                .padding([.leading, .trailing, .bottom], 40)
+                RoundedButton(title: "Menu", fontSize: 24, action: {
+                    withAnimation { self.currentGameState = .menu }
+                })
+                
+                RoundedButton(title: "Leaderboard", fontSize: 24, action: {
+                    withAnimation { self.currentGameState = .leaderboard }
+                })
             }
+            .padding()
+            .background(.mmPink)
+            .cornerRadius(10)
+            .padding([.leading, .trailing, .bottom], 40)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.mmUIBackground)
+        
         .onAppear(){
             amountOfBananasPlanted = GameLogic.shared.currentScore
             

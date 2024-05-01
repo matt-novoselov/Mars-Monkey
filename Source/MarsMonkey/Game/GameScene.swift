@@ -119,7 +119,7 @@ extension GameScene{
     private func setUpGame() {
         self.gameLogic.setUpGame() // Set up game values
         self.physicsWorld.contactDelegate = self
-        self.scene?.size = CGSize(width: 1179, height: 2556) // Set scene's resolution
+        self.scaleMode = .aspectFill // Set resize mode of the scene
         self.startAsteroidsCycle() // Start spawning asteroids
         self.startCratersCycle() // Start spawning craters
     }

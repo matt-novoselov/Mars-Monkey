@@ -25,28 +25,40 @@ struct ContentView: View {
     
     var body: some View {
         
-        switch currentGameState {
-        
-        // Display main game menu
-        case .menu:
-            MenuView(currentGameState: $currentGameState)
-                .environmentObject(gameLogic)
-           
-        // Display main game scene
-        case .playing:
-            GameView(currentGameState: $currentGameState)
-                .environmentObject(gameLogic)
-          
-        // Display Game Over screen with results
-        case .timeIsUp:
-            TimesUpView(currentGameState: $currentGameState)
-                .environmentObject(gameLogic)
-           
-        // Display leaderboard with SwiftData
-        case .leaderboard:
-            LeaderboardView(currentGameState: $currentGameState)
-                .environmentObject(gameLogic)
+        ZStack{
+            switch currentGameState {
+            
+            // Display main game menu
+            case .menu:
+                MenuView(currentGameState: $currentGameState)
+                    .environmentObject(gameLogic)
+                    .transition(.move(edge: .leading))
+               
+            // Display main game scene
+            case .playing:
+                GameView(currentGameState: $currentGameState)
+                    .environmentObject(gameLogic)
+              
+            // Display Game Over screen with results
+            case .timeIsUp:
+                TimesUpView(currentGameState: $currentGameState)
+                    .environmentObject(gameLogic)
+                    .transition(.move(edge: .trailing))
+               
+            // Display leaderboard with SwiftData
+            case .leaderboard:
+                LeaderboardView(currentGameState: $currentGameState)
+                    .environmentObject(gameLogic)
+                    .transition(.move(edge: .trailing))
+                
+            // Display game credits
+            case .credits:
+                CreditsView(currentGameState: $currentGameState)
+                    .transition(.move(edge: .trailing))
+            }
         }
+        .background(.mmUIBackground)
+        
     }
 }
 

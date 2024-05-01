@@ -8,7 +8,7 @@
 import SwiftUI
 
 // This structure is used to create a round button with a custom action
-struct roundedButton: View {
+struct RoundedButton: View {
     
     var title: String
     var fontSize: CGFloat = 40
@@ -39,5 +39,5 @@ struct PressEffectButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    roundedButton(title: "Test", action: {})
+    RoundedButton(title: "Test", action: {})
 }

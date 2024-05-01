@@ -13,6 +13,7 @@ enum GameState{
     case playing // GameView
     case timeIsUp // TimesUpView
     case leaderboard // LeaderboardView
+    case credits // Credits View
 }
 
 struct GameConstants{

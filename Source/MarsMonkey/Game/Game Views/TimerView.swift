@@ -25,6 +25,7 @@ struct TimerView: View {
             }
         }
         .onAppear(){
+            timerModel.stopTimer()
             timerModel.startTimer()
         }
     }

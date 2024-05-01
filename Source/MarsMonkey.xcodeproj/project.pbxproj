@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0AAC29D02B270BE00069EE9F /* TimerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29CF2B270BE00069EE9F /* TimerPlayer.swift */; };
 		0AAC29D22B2710050069EE9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC29D12B2710050069EE9F /* TimerView.swift */; };
+		1A01A8AD2BE2CECB000D4F38 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A8AC2BE2CECB000D4F38 /* CreditsView.swift */; };
+		1A01A8AF2BE2D451000D4F38 /* PlayerNameWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A8AE2BE2D451000D4F38 /* PlayerNameWarning.swift */; };
 		1A0396532B248E2E000DB43C /* HapticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0396522B248E2E000DB43C /* HapticModel.swift */; };
 		1A2390C32B30555000932D1A /* crater.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C02B30555000932D1A /* crater.mp3 */; };
 		1A2390C42B30555000932D1A /* asteroid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2390C12B30555000932D1A /* asteroid.mp3 */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		0AAC29CF2B270BE00069EE9F /* TimerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPlayer.swift; sourceTree = "<group>"; };
 		0AAC29D12B2710050069EE9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		1A01A8AC2BE2CECB000D4F38 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		1A01A8AE2BE2D451000D4F38 /* PlayerNameWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameWarning.swift; sourceTree = "<group>"; };
 		1A0396522B248E2E000DB43C /* HapticModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticModel.swift; sourceTree = "<group>"; };
 		1A2390C02B30555000932D1A /* crater.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crater.mp3; sourceTree = "<group>"; };
 		1A2390C12B30555000932D1A /* asteroid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = asteroid.mp3; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				1AE58E1F2BD6427600AEAEE0 /* Components */,
 				CC7E7A732B24947F00392E0E /* MenuView.swift */,
 				1A68A2932B29BCBE00D47EE4 /* LeaderboardView.swift */,
+				1A01A8AC2BE2CECB000D4F38 /* CreditsView.swift */,
 			);
 			path = "Non-Game Views";
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				1AE58E242BD642C400AEAEE0 /* LeaderboardParticipant.swift */,
 				1AE58E262BD642E800AEAEE0 /* GameScore.swift */,
 				1AE58E282BD642F600AEAEE0 /* TopPlayerCard.swift */,
+				1A01A8AE2BE2D451000D4F38 /* PlayerNameWarning.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A01A8AD2BE2CECB000D4F38 /* CreditsView.swift in Sources */,
 				1A400F572B29040D00845F3E /* gcJoystick.swift in Sources */,
 				1AAB718E2B2B3D1B00F5529E /* gcProgressBar.swift in Sources */,
 				1A400F612B2905B900845F3E /* gcAsteroids.swift in Sources */,
@@ -352,6 +359,7 @@
 				1AB18EE32B29CE4000936E86 /* gcPlantingArea.swift in Sources */,
 				CCEEADCA2B25F3C900AB2AA0 /* GameView.swift in Sources */,
 				1A3596282B2347630012D276 /* MarsMonkeyApp.swift in Sources */,
+				1A01A8AF2BE2D451000D4F38 /* PlayerNameWarning.swift in Sources */,
 				1AD039942B2E3408001A7A09 /* AudioPlayer.swift in Sources */,
 				CCEEADD02B25F45200AB2AA0 /* GameLogic.swift in Sources */,
 				1A68A2942B29BCBE00D47EE4 /* LeaderboardView.swift in Sources */,
@@ -510,9 +518,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattnovoselov.MarsMonkey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -540,9 +552,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mattnovoselov.MarsMonkey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

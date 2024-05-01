@@ -51,7 +51,7 @@ struct LeaderboardView: View {
             .mask(RoundedRectangle(cornerRadius: 10))
             
             // Back to menu button
-            roundedButton(title: "Menu", fontSize: 24, action: {
+            RoundedButton(title: "Menu", fontSize: 24, action: {
                 withAnimation { self.currentGameState = .menu }
             })
         }
