@@ -14,7 +14,13 @@ struct TopPlayerCard: View {
 
     var body: some View {
         HStack{
-            Image(.crown).padding(.leading,5)
+            Image(.crown)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 35)
+                .padding(.leading,5)
+                .shadow(radius: 10)
+            
             StrokeText(text: TopPlayerName, strokeWidth: 1)
                 .font(Font.custom("RedBurger", size: 24))
                 .foregroundColor(.white)
