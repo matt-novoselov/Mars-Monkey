@@ -15,12 +15,14 @@ Mars Monkey - an endless runner arcade game about a monkey who has decided to co
 
 [![](https://github.com/matt-novoselov/matt-novoselov/blob/34555effedede5dd5aa24ae675218d989e976cf6/Files/YouTube_Badge.svg)](https://youtu.be/SX-dCDzpXVU)
 
-## Description
-Mars Monkey was developed using **SpriteKit** as the main game engine, along with **SwiftUI** to create certain parts of the visual interface.
+## Features
 
+### Gameplay
+Mars Monkey was developed using **SpriteKit** as the main game engine, along with **SwiftUI** to create certain parts of the visual interface. The app uses **AVFoundation** for playing background music and sound effects within the game.
+
+### Leaderboard
 Players can enter their names before starting the game to keep track of their records. The app utilizes **SwiftData** to store users' scores and names in the leaderboard.
 
-Mars Monkey uses **AVFoundation** for playing background music and sound effects within the game.
 
 ## Requirements
 - iOS 17.0+
